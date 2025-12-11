@@ -59,7 +59,7 @@ const Recognition = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-32 lg:pt-36">
         <div className="absolute inset-0">
           <img src={recognitionBanner} alt="Recognition" className="w-full h-full object-cover" />
           <div className="absolute inset-0 hero-overlay" />
@@ -147,12 +147,12 @@ const Recognition = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-secondary text-secondary-foreground">
+      <section className="py-20 bg-mithila-cream">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Our Journey</p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-secondary-foreground">
-              Journey of <span className="text-primary">Recognition</span>
+            <p className="text-sm font-medium text-mithila-red uppercase tracking-wider mb-3">Our Journey</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-secondary">
+              Journey of <span className="text-mithila-red">Recognition</span>
             </h2>
           </div>
           
@@ -160,11 +160,11 @@ const Recognition = () => {
             <div className="space-y-6">
               {timeline.map((item, index) => (
                 <div key={item.year} className="flex gap-6 items-center">
-                  <div className="flex-shrink-0 w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary">
-                    <span className="font-display font-bold text-primary text-lg">{item.year}</span>
+                  <div className="flex-shrink-0 w-20 h-20 rounded-full bg-mithila-red/10 flex items-center justify-center border-2 border-mithila-red">
+                    <span className="font-display font-bold text-mithila-red text-lg">{item.year}</span>
                   </div>
-                  <div className="flex-1 bg-secondary-foreground/10 rounded-2xl p-4">
-                    <p className="font-medium text-secondary-foreground">{item.event}</p>
+                  <div className="flex-1 bg-white rounded-2xl p-4 shadow-sm border border-border">
+                    <p className="font-medium text-secondary">{item.event}</p>
                   </div>
                 </div>
               ))}

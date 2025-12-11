@@ -50,7 +50,7 @@ const YouthCommunity = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-br from-accent/20 via-mithila-yellow/10 to-primary/10">
+      <section className="relative pt-32 lg:pt-36 pb-16 md:pb-24 bg-gradient-to-br from-accent/20 via-mithila-yellow/10 to-primary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/20 rounded-full">
@@ -157,24 +157,24 @@ const YouthCommunity = () => {
       </section>
 
       {/* Get Involved */}
-      <section className="py-16 bg-foreground text-background">
+      <section className="py-16 bg-mithila-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-display text-3xl font-bold mb-4">
-              Get <span className="text-accent">Involved</span>
+            <h2 className="font-display text-3xl font-bold mb-4 text-secondary">
+              Get <span className="text-mithila-red">Involved</span>
             </h2>
-            <p className="text-background/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-secondary/70 mb-8 max-w-2xl mx-auto">
               Join our community programs as a participant, volunteer, or supporter. 
               There are many ways to contribute to cultural preservation.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild className="bg-accent hover:bg-accent/90">
+              <Button asChild className="bg-mithila-red hover:bg-mithila-red/90 text-white font-bold">
                 <Link to="/contact">Volunteer</Link>
               </Button>
-              <Button asChild variant="outline" className="border-background/50 text-background hover:bg-background/10">
+              <Button asChild className="bg-secondary hover:bg-secondary/90 text-white font-bold">
                 <Link to="/contact">Register for Programs</Link>
               </Button>
-              <Button asChild variant="outline" className="border-background/50 text-background hover:bg-background/10">
+              <Button asChild className="bg-mithila-yellow hover:bg-mithila-yellow/90 text-secondary font-bold">
                 <Link to="/contact">Donate</Link>
               </Button>
             </div>

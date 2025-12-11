@@ -69,7 +69,7 @@ const Gallery = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 overflow-hidden">
+      <section className="relative pt-32 lg:pt-36 pb-20 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 overflow-hidden">
         <div className="absolute inset-0 mithila-pattern opacity-50" />
         <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
@@ -87,15 +87,15 @@ const Gallery = () => {
       </section>
 
       {/* Featured Artwork Slider */}
-      <section className="py-16 bg-foreground relative overflow-hidden">
+      <section className="py-16 bg-mithila-cream relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 mithila-pattern" />
         </div>
         
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-8">
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">Featured Collection</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-background mt-2">
+            <span className="text-sm font-medium text-mithila-red uppercase tracking-wider">Featured Collection</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary mt-2">
               Masterpieces of Mithila
             </h2>
           </div>
@@ -119,10 +119,10 @@ const Gallery = () => {
                           alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                          <h3 className="font-display text-lg font-semibold text-background">{item.title}</h3>
-                          <p className="text-sm text-background/80 line-clamp-1">{item.desc}</p>
+                          <h3 className="font-display text-lg font-semibold text-white">{item.title}</h3>
+                          <p className="text-sm text-white/80 line-clamp-1">{item.desc}</p>
                         </div>
                         
                         {/* Zoom Icon */}
@@ -340,10 +340,10 @@ const Gallery = () => {
               Support traditional artists and bring the beauty of Mithila art to your home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="text-lg">
+              <Button asChild size="lg" className="bg-white text-secondary hover:bg-white/90 font-bold text-lg">
                 <Link to="/contact">Inquire About Artwork</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg border-white/30 text-white hover:bg-white/10">
+              <Button asChild size="lg" className="bg-secondary text-white hover:bg-secondary/90 font-bold text-lg">
                 <Link to="/festival">Visit Our Festival</Link>
               </Button>
             </div>
