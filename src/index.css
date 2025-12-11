@@ -281,14 +281,14 @@
     object-fit: cover;
   }
 
-  /* Hero Overlay */
+  /* Hero Overlay - Earth Brown Theme */
   .hero-overlay {
     background: linear-gradient(
       to right,
-      hsl(var(--secondary) / 0.97) 0%,
-      hsl(var(--secondary) / 0.9) 35%,
-      hsl(var(--secondary) / 0.6) 60%,
-      hsl(var(--secondary) / 0.3) 80%,
+      hsl(27 47% 25% / 0.95) 0%,
+      hsl(27 47% 25% / 0.85) 35%,
+      hsl(27 47% 25% / 0.6) 60%,
+      hsl(27 47% 25% / 0.3) 80%,
       transparent 100%
     );
   }
@@ -297,9 +297,9 @@
     .hero-overlay {
       background: linear-gradient(
         to bottom,
-        hsl(var(--secondary) / 0.85) 0%,
-        hsl(var(--secondary) / 0.7) 50%,
-        hsl(var(--secondary) / 0.5) 100%
+        hsl(27 47% 25% / 0.9) 0%,
+        hsl(27 47% 25% / 0.75) 50%,
+        hsl(27 47% 25% / 0.6) 100%
       );
     }
   }
