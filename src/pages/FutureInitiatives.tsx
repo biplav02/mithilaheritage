@@ -33,8 +33,8 @@ const initiatives = [
   {
     icon: Users,
     title: "Youth Leadership",
-    subtitle: "Mentorship Programs",
-    desc: "Developing the next generation of cultural ambassadors through leadership training and mentorship.",
+    subtitle: "Fellowships & Mentorship",
+    desc: "Establishing youth leadership programs and fellowships around cultural organizing and SDG advocacy through art, with structured training for emerging Mithila artists.",
     status: "Ongoing",
     color: "text-secondary",
   },
@@ -113,17 +113,17 @@ const FutureInitiatives = () => {
                   Museum of Mithila <span className="text-primary">Heritage</span>
                 </h2>
                 <p className="text-muted-foreground mb-4">
-                  Our vision is to establish a dedicated museum in New York City that serves as 
-                  the global center for Mithila art and culture—a space where tradition meets 
-                  contemporary expression.
+                  Our landmark aspiration is the creation of the <strong className="text-foreground">Museum of Mithila Heritage (MoM New York)</strong>—a 
+                  dedicated institution that will serve as the global center for Mithila art and culture, where tradition 
+                  meets contemporary expression.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {[
-                    "Permanent collection of Mithila artwork",
-                    "Rotating exhibitions and installations",
-                    "Artist residency programs",
-                    "Research archives and library",
-                    "Educational workshops and classes",
+                    "Preserve and display Mithila artworks, artifacts, and archival material",
+                    "Host exhibitions, residencies, and educational programs for students and researchers",
+                    "Serve as permanent home for 'Art for SDGs: The Mithila Heritage' exhibitions",
+                    "Research archives and library for scholars",
+                    "Artist residency and mentorship programs",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm">
                       <div className="w-2 h-2 rounded-full bg-primary" />

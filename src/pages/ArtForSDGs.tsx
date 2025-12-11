@@ -19,7 +19,7 @@ const sdgEditions = [
     year: "2022",
     icon: BookOpen,
     color: "from-mithila-red to-red-700",
-    description: "Art as a tool for learning and cultural education, promoting inclusive and equitable quality education for all.",
+    description: "The 2022 festival edition highlighted education through themed artworks and exhibitions, emphasizing access to learning and empowerment via art as a tool for cultural education.",
   },
   {
     sdg: "SDG 5",
@@ -27,7 +27,7 @@ const sdgEditions = [
     year: "2023",
     icon: Users,
     color: "from-primary to-orange-600",
-    description: "Celebrating women artists of Mithila and promoting gender equality through artistic expression and economic empowerment.",
+    description: "The fourth Mithila Festival USA 2023 focused on Gender Equality, with most participating artists being women and artworks depicting women's voices, social justice, and economic empowerment.",
   },
   {
     sdg: "SDG 13",
@@ -35,7 +35,7 @@ const sdgEditions = [
     year: "2024",
     icon: Leaf,
     color: "from-mithila-green to-green-700",
-    description: "Using traditional art to raise awareness about climate change and inspire urgent action for environmental protection.",
+    description: "At UN Headquarters and associated events, artworks depicted drought, extreme weather, and community struggles, offering a powerful climate narrative through folk painting.",
   },
   {
     sdg: "SDG 15",
@@ -43,7 +43,7 @@ const sdgEditions = [
     year: "2025",
     icon: TreePine,
     color: "from-mithila-blue to-blue-700",
-    description: "Highlighting biodiversity through Mithila art motifs—flora, fauna, and the interconnectedness of life on land.",
+    description: "The 6th Annual Mithila Festival USA and 2025 Workshop, Exhibition & Award program dedicated to Life on Land, linking children's workshops with themes of biodiversity and environmental stewardship.",
   },
 ];
 
