@@ -23,37 +23,69 @@ const WorldTour = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={worldTourBanner} alt="World Tour" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 hero-overlay" />
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
+        {/* Subtle decorative elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-40 right-20 w-64 h-64 border border-mithila-red/30 rounded-full" />
+          <div className="absolute bottom-32 left-20 w-48 h-48 border border-mithila-yellow/40 rounded-full" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-2xl text-secondary-foreground">
-            <p className="section-subtitle mb-4 text-secondary-foreground/70">Global Initiative 2025</p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary-foreground">
-              Art for SDGs: <span className="text-primary">World Tour</span>
-            </h1>
-            <p className="text-lg text-secondary-foreground/80 mb-8 max-w-xl">
-              Taking Mithila heritage global! Join us as we bring cultural diplomacy 
-              and artistic excellence to international stages worldwide.
-            </p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 rounded-full px-8">
-              <Link to="/contact">Join the Tour <ArrowRight className="ml-2" size={16} /></Link>
-            </Button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-[2px] bg-mithila-red" />
+                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">Global Initiative 2025</span>
+              </div>
+              
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary leading-[1.1]">
+                Art for SDGs:
+                <span className="block text-mithila-red">World Tour</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-secondary/70 mb-8 max-w-xl leading-relaxed">
+                Taking Mithila heritage global! Join us as we bring cultural diplomacy 
+                and artistic excellence to international stages worldwide.
+              </p>
+              
+              <Button asChild variant="hero" size="hero" className="group">
+                <Link to="/contact">
+                  Join the Tour 
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                </Link>
+              </Button>
+            </div>
+            
+            {/* Image Side */}
+            <div className="relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <img 
+                  src={worldTourBanner} 
+                  alt="World Tour" 
+                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
+                <img src={peacockGarden} alt="Mithila Art" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-mithila-red/30 rounded-full hidden lg:block" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Tour Overview */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
-              <p className="section-subtitle mb-3">The Vision</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                Mithila Art Goes <span className="highlight-text">Global</span>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-8 h-[2px] bg-mithila-red" />
+                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">The Vision</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                Mithila Art Goes <span className="text-mithila-red">Global</span>
               </h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 The World Tour 2025 marks a historic expansion of our mission, bringing Mithila heritage 
@@ -71,7 +103,7 @@ const WorldTour = () => {
                   "Youth activities and workshops",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    <div className="w-2 h-2 rounded-full bg-mithila-red" />
                     <span className="text-sm">{item}</span>
                   </div>
                 ))}
@@ -80,11 +112,11 @@ const WorldTour = () => {
             
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img src={peacockGarden} alt="Mithila Art" className="w-full aspect-[4/3] object-cover" />
+                <img src={masterArtist} alt="Master Artist" className="w-full aspect-[4/3] object-cover" />
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <button className="play-button">
-                  <Play size={24} className="text-primary ml-1" fill="currentColor" />
+                <button className="w-16 h-16 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-xl transition-all hover:scale-110">
+                  <Play size={24} className="text-mithila-red ml-1" fill="currentColor" />
                 </button>
               </div>
             </div>

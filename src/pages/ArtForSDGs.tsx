@@ -68,83 +68,72 @@ const ArtForSDGs = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section ref={heroRef.ref} className="relative min-h-[90vh] flex items-center overflow-hidden bg-secondary">
-        <div className="absolute inset-0">
-          <img 
-            src={artForSdgsBanner} 
-            alt="Art for SDGs" 
-            className={`w-full h-full object-cover transition-all duration-[2s] ${heroRef.isInView ? 'scale-100 opacity-50' : 'scale-110 opacity-0'}`} 
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/50" />
+      <section ref={heroRef.ref} className="relative min-h-[85vh] flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
+        {/* Subtle decorative elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-40 right-20 w-64 h-64 border border-mithila-red/30 rounded-full" />
+          <div className="absolute bottom-32 left-20 w-48 h-48 border border-mithila-yellow/40 rounded-full" />
         </div>
-        
-        {/* Animated Decorative Elements */}
-        <div className="absolute top-20 right-[5%] w-40 h-40 border-2 border-primary/20 rounded-full animate-pulse hidden lg:block">
-          <div className="absolute inset-4 border border-mithila-yellow/30 rounded-full animate-spin" style={{ animationDuration: '20s' }} />
-        </div>
-        <div className="absolute bottom-32 right-[15%] w-24 h-24 bg-primary/10 rounded-full blur-xl animate-float hidden lg:block" />
-        <div className="absolute top-1/3 right-[8%] w-3 h-3 bg-mithila-yellow rounded-full animate-ping hidden lg:block" />
-        <div className="absolute top-2/3 right-[12%] w-2 h-2 bg-mithila-green rounded-full animate-pulse hidden lg:block" />
-        <div className="absolute bottom-1/4 left-[5%] w-16 h-16 border border-mithila-yellow/20 rounded-full hidden lg:block animate-float" style={{ animationDelay: '1s' }} />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className={`max-w-3xl transition-all duration-1000 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm rounded-full px-5 py-2.5 mb-6 border border-primary/30 hover:bg-primary/30 transition-colors cursor-default">
-              <Sparkles size={18} className="text-primary animate-pulse" />
-              <span className="text-sm font-semibold text-secondary-foreground tracking-wide">Flagship Initiative</span>
-              <div className="w-2 h-2 bg-mithila-green rounded-full animate-pulse" />
-            </div>
-            
-            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-secondary-foreground leading-[1.1]">
-              Art for SDGs: <br />
-              <span className="text-primary">The Mithila Heritage</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-secondary-foreground/85 mb-8 max-w-2xl leading-relaxed">
-              Connecting traditional Mithila art with the United Nations Sustainable Development Goals, 
-              positioning culture as a driver of global awareness and social change.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button asChild size="lg" className="btn-gamified group ripple h-14 text-lg">
-                <Link to="/contact">
-                  <Zap size={20} className="mr-2" />
-                  Get Involved 
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-                </Link>
-              </Button>
-              <Button asChild size="lg" className="btn-outline-visible h-14 text-lg group">
-                <Link to="/gallery">
-                  <Play size={18} className="mr-2" />
-                  View Gallery
-                </Link>
-              </Button>
-            </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className={`transition-all duration-1000 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-[2px] bg-mithila-red" />
+                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">Flagship Initiative</span>
+              </div>
+              
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary leading-[1.1]">
+                Art for SDGs:
+                <span className="block text-mithila-red">The Mithila Heritage</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-secondary/70 mb-8 max-w-xl leading-relaxed">
+                Connecting traditional Mithila art with the United Nations Sustainable Development Goals, 
+                positioning culture as a driver of global awareness and social change.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Button asChild variant="hero" size="hero" className="group">
+                  <Link to="/contact">
+                    Get Involved 
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                  </Link>
+                </Button>
+                <Button asChild variant="heroDark" size="hero" className="group">
+                  <Link to="/gallery">
+                    View Gallery
+                  </Link>
+                </Button>
+              </div>
 
-            {/* Stats Row */}
-            <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-8 pt-8 border-t border-secondary-foreground/30 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              {impactStats.map((stat, i) => (
-                <div 
-                  key={i} 
-                  className="text-center group cursor-default hover:scale-105 transition-transform bg-secondary-foreground/5 rounded-xl p-4"
-                  style={{ transitionDelay: `${600 + i * 100}ms` }}
-                >
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <stat.icon size={18} className="text-mithila-yellow group-hover:text-primary transition-colors" />
-                    <p className="font-display text-2xl md:text-3xl font-bold text-mithila-yellow">{stat.value}</p>
+              {/* Stats Row */}
+              <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-secondary/10 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                {impactStats.map((stat, i) => (
+                  <div key={i} className="group cursor-default">
+                    <div className="flex items-center gap-2 mb-1">
+                      <stat.icon size={16} className="text-mithila-red/60" />
+                      <p className="font-display text-2xl md:text-3xl font-bold text-secondary">{stat.value}</p>
+                    </div>
+                    <p className="text-xs md:text-sm text-secondary/50">{stat.label}</p>
                   </div>
-                  <p className="text-xs md:text-sm text-secondary-foreground font-medium">{stat.label}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-          <div className="w-6 h-10 border-2 border-secondary-foreground/30 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-primary rounded-full animate-scroll-down" />
+            
+            {/* Image Side */}
+            <div className={`relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <img 
+                  src={artForSdgsBanner} 
+                  alt="Art for SDGs" 
+                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-mithila-red/30 rounded-full hidden lg:block" />
+              <div className="absolute top-1/2 -right-8 w-16 h-16 bg-mithila-yellow/20 rounded-full hidden lg:block" />
+            </div>
           </div>
         </div>
       </section>

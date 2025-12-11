@@ -45,7 +45,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section - Modern Clean Design Like mithila.uk */}
-      <section ref={heroRef.ref} className="relative min-h-screen flex items-center overflow-hidden bg-mithila-cream pt-24 lg:pt-28">
+      <section ref={heroRef.ref} className="relative min-h-screen flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
         {/* Subtle Pattern Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
