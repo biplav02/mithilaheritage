@@ -277,18 +277,30 @@
   .hero-overlay {
     background: linear-gradient(
       to right,
-      hsl(var(--secondary) / 0.95) 0%,
-      hsl(var(--secondary) / 0.85) 40%,
-      hsl(var(--secondary) / 0.4) 70%,
+      hsl(var(--secondary) / 0.97) 0%,
+      hsl(var(--secondary) / 0.9) 35%,
+      hsl(var(--secondary) / 0.6) 60%,
+      hsl(var(--secondary) / 0.3) 80%,
       transparent 100%
     );
+  }
+
+  @media (max-width: 768px) {
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        hsl(var(--secondary) / 0.85) 0%,
+        hsl(var(--secondary) / 0.7) 50%,
+        hsl(var(--secondary) / 0.5) 100%
+      );
+    }
   }
 
   /* Elegant Card */
   .elegant-card {
     background: hsl(var(--background));
     border: 1px solid hsl(var(--border));
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .elegant-card:hover {
@@ -315,8 +327,8 @@
 
   /* Play Button */
   .play-button {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background: hsl(var(--background));
     display: flex;
@@ -324,11 +336,145 @@
     justify-content: center;
     box-shadow: 0 8px 30px hsl(var(--mithila-brown) / 0.3);
     transition: all 0.3s ease;
+    animation: pulse-scale 2s ease-in-out infinite;
   }
 
   .play-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 40px hsl(var(--primary) / 0.4);
+    transform: scale(1.15);
+    box-shadow: 0 12px 40px hsl(var(--primary) / 0.5);
+  }
+
+  @keyframes pulse-scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Artistic Border */
+  .artistic-border {
+    position: relative;
+  }
+
+  .artistic-border::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--mithila-gold)), hsl(var(--primary)));
+    border-radius: inherit;
+    z-index: -1;
+    animation: border-rotate 4s linear infinite;
+  }
+
+  @keyframes border-rotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Floating Animation */
+  .animate-float {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* Fade In Up Animation */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Slide In Animation */
+  .animate-slide-in {
+    animation: slide-in 0.6s ease-out forwards;
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Scale In Animation */
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  /* Hero Button Styles */
+  .hero-btn-primary {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .hero-btn-primary:hover {
+    background: hsl(var(--primary) / 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px hsl(var(--primary) / 0.4);
+  }
+
+  .hero-btn-secondary {
+    background: hsl(var(--background) / 0.9);
+    color: hsl(var(--foreground));
+    border: 2px solid hsl(var(--primary));
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  .hero-btn-secondary:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-2px);
+  }
+
+  /* Decorative Elements */
+  .decorative-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
   }
 
   /* Animated Underline */
