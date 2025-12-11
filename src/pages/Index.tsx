@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Users, Award, Heart, Calendar, Play, ChevronRight, Sparkles, Star, MapPin } from "lucide-react";
+import { ArrowRight, Globe, Users, Award, Heart, Calendar, Play, ChevronRight, Sparkles, Star, MapPin, Zap, Target, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useEffect, useRef, useState } from "react";
 
 // Import Mithila artwork images
 import heroDark from "@/assets/hero-mithila-dark.jpg";
@@ -20,6 +21,31 @@ import peacockGarden from "@/assets/gallery/mithila-peacock-garden.jpg";
 import villageScene from "@/assets/gallery/mithila-village-scene.jpg";
 import elephant from "@/assets/gallery/mithila-elephant.jpg";
 
+// Custom hook for scroll animations
+const useInView = (threshold = 0.1) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, isInView };
+};
+
 const Index = () => {
   const featuredArt = [
     { img: peacockArt, title: "Divine Peacock", category: "Traditional" },
@@ -30,73 +56,97 @@ const Index = () => {
     { img: villageScene, title: "Village Life", category: "Folk" },
   ];
 
+  // Scroll animation refs
+  const heroRef = useInView(0.1);
+  const artRef = useInView(0.1);
+  const missionRef = useInView(0.1);
+  const teamRef = useInView(0.1);
+  const unRef = useInView(0.1);
+  const programsRef = useInView(0.1);
+  const ctaRef = useInView(0.1);
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section - Premium Design */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-secondary">
+      {/* Hero Section - Premium Design with Gamified Elements */}
+      <section ref={heroRef.ref} className="relative min-h-screen flex items-center overflow-hidden bg-secondary">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img 
             src={heroDark} 
             alt="Traditional Mithila Madhubani Art" 
-            className="w-full h-full object-cover opacity-60"
+            className={`w-full h-full object-cover transition-all duration-[2s] ${heroRef.isInView ? 'opacity-60 scale-100' : 'opacity-0 scale-110'}`}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/50" />
         </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-1/4 right-[10%] w-32 h-32 border border-mithila-yellow/30 rounded-full animate-pulse hidden lg:block" />
-        <div className="absolute bottom-1/4 right-[15%] w-16 h-16 bg-mithila-red/20 rounded-full hidden lg:block" />
-        <div className="absolute top-1/3 right-[5%] w-2 h-2 bg-mithila-yellow rounded-full animate-ping hidden lg:block" />
+        {/* Animated Decorative Elements */}
+        <div className={`absolute top-1/4 right-[10%] w-32 h-32 border border-mithila-yellow/30 rounded-full transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-50'} hidden lg:block`}>
+          <div className="absolute inset-2 border border-primary/20 rounded-full animate-pulse" />
+        </div>
+        <div className={`absolute bottom-1/4 right-[15%] w-16 h-16 bg-mithila-red/20 rounded-full transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100' : 'opacity-0'} hidden lg:block animate-float`} />
+        <div className="absolute top-1/3 right-[5%] w-3 h-3 bg-mithila-yellow rounded-full animate-ping hidden lg:block" />
+        <div className="absolute top-2/3 right-[8%] w-2 h-2 bg-primary rounded-full animate-pulse hidden lg:block" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl py-12 md:py-0">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-mithila-yellow/10 backdrop-blur-sm rounded-full border border-mithila-yellow/30">
-              <Sparkles size={18} className="text-mithila-yellow" />
-              <span className="text-sm font-medium text-mithila-yellow tracking-wide">Preserving Heritage Since 2019</span>
+            {/* Gamified Badge */}
+            <div className={`transition-all duration-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-mithila-yellow/10 backdrop-blur-sm rounded-full border border-mithila-yellow/30 hover:bg-mithila-yellow/20 hover:scale-105 transition-all cursor-default">
+                <Sparkles size={18} className="text-mithila-yellow animate-pulse" />
+                <span className="text-sm font-medium text-mithila-yellow tracking-wide">Preserving Heritage Since 2019</span>
+                <div className="w-2 h-2 bg-mithila-green rounded-full animate-pulse" />
+              </div>
             </div>
             
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white tracking-tight">
+            <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white tracking-tight transition-all duration-1000 delay-200 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Embark on a Journey of{" "}
               <span className="text-mithila-yellow">Cultural Heritage</span>
               <span className="block mt-3">& Preserve the Soul of{" "}
               <span className="text-mithila-red">Mithila Art</span></span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed">
+            <p className={`text-lg sm:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed transition-all duration-1000 delay-400 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               At the heart of our mission, we guide individuals toward cultural preservation 
               and artistic excellence, nurturing traditions with compassion for future generations.
             </p>
             
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button asChild size="lg" className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-10 text-lg h-14 shadow-lg shadow-mithila-red/30 transition-all hover:scale-105">
+            {/* Enhanced CTA Buttons with Gamified Styling */}
+            <div className={`flex flex-col sm:flex-row gap-4 mb-12 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <Button asChild size="lg" className="btn-gamified group ripple h-14 text-lg">
                 <Link to="/about">
+                  <Zap size={20} className="mr-2 group-hover:animate-pulse" />
                   Discover More
-                  <ArrowRight className="ml-2" size={20} />
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
               </Button>
-              <Button asChild size="lg" className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 hover:border-white/50 rounded-full px-10 text-lg h-14 backdrop-blur-sm transition-all">
+              <Button asChild size="lg" className="btn-outline-visible h-14 text-lg group">
                 <Link to="/gallery">
+                  <Target size={18} className="mr-2 group-hover:rotate-12 transition-transform" />
                   View Gallery
                 </Link>
               </Button>
             </div>
 
-            {/* Stats Row */}
-            <div className="flex flex-wrap gap-8 sm:gap-12 pt-10 border-t border-white/20">
+            {/* Stats Row - Gamified Counters */}
+            <div className={`flex flex-wrap gap-6 sm:gap-10 pt-10 border-t border-white/20 transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               {[
-                { num: "5000+", label: "Years of Heritage" },
-                { num: "6+", label: "UN Exhibitions" },
-                { num: "100+", label: "Artists Supported" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center sm:text-left">
-                  <p className="font-display text-3xl sm:text-4xl font-bold text-mithila-yellow">{stat.num}</p>
-                  <p className="text-sm text-white/60 mt-1">{stat.label}</p>
+                { num: "5000+", label: "Years of Heritage", icon: Trophy },
+                { num: "6+", label: "UN Exhibitions", icon: Globe },
+                { num: "100+", label: "Artists Supported", icon: Users },
+              ].map((stat, index) => (
+                <div 
+                  key={stat.label} 
+                  className="text-center sm:text-left group cursor-default hover:scale-105 transition-transform"
+                  style={{ transitionDelay: `${800 + index * 100}ms` }}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <stat.icon size={16} className="text-mithila-yellow/70 group-hover:text-mithila-yellow transition-colors" />
+                    <p className="font-display text-3xl sm:text-4xl font-bold text-mithila-yellow">{stat.num}</p>
+                  </div>
+                  <p className="text-sm text-white/60 group-hover:text-white/80 transition-colors">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -104,19 +154,22 @@ const Index = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
+        <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 transition-all duration-1000 delay-1000 ${heroRef.isInView ? 'opacity-100' : 'opacity-0'}`}>
           <span className="text-xs text-white/50 tracking-widest uppercase">Scroll</span>
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-            <div className="w-1 h-3 bg-mithila-yellow rounded-full animate-bounce" />
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2 hover:border-mithila-yellow/50 transition-colors">
+            <div className="w-1 h-3 bg-mithila-yellow rounded-full animate-scroll-down" />
           </div>
         </div>
       </section>
 
       {/* Featured Art Grid */}
-      <section className="py-16 sm:py-20 md:py-28 bg-background">
+      <section ref={artRef.ref} className="py-16 sm:py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block px-4 py-1.5 bg-mithila-red/10 text-mithila-red text-sm font-medium rounded-full mb-4">Artistic Excellence</span>
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${artRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="badge-interactive mb-4">
+              <Star size={14} className="text-mithila-red" />
+              Artistic Excellence
+            </span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               Inner <span className="text-mithila-green">Peace</span> in Every Moment
             </h2>
@@ -132,7 +185,8 @@ const Index = () => {
                 to="/gallery"
                 className={`group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-mithila-red/50 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 ${
                   index === 0 ? 'md:row-span-2' : ''
-                }`}
+                } ${artRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="aspect-square overflow-hidden">
                   <img 
@@ -148,14 +202,18 @@ const Index = () => {
                     {item.title}
                   </h3>
                 </div>
+                {/* Interactive Indicator */}
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                  <ArrowRight size={14} className="text-white" />
+                </div>
               </Link>
             ))}
           </div>
           
-          <div className="text-center mt-10 sm:mt-14">
-            <Button asChild className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-8 h-12">
+          <div className={`text-center mt-10 sm:mt-14 transition-all duration-1000 delay-500 ${artRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <Button asChild className="btn-gamified group ripple">
               <Link to="/gallery">
-                Explore Full Gallery <ArrowRight className="ml-2" size={18} />
+                Explore Full Gallery <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </Link>
             </Button>
           </div>
@@ -163,27 +221,27 @@ const Index = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 sm:py-20 md:py-28 bg-mithila-cream">
+      <section ref={missionRef.ref} className="py-16 sm:py-20 md:py-28 bg-mithila-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center max-w-7xl mx-auto">
             {/* Image Side */}
-            <div className="relative order-2 lg:order-1">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <div className={`relative order-2 lg:order-1 transition-all duration-1000 ${missionRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
                 <img 
                   src={festivalImg} 
                   alt="Mithila Festival" 
-                  className="w-full aspect-[4/3] object-cover"
+                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="w-20 h-20 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-xl transition-all hover:scale-110 group">
-                    <Play size={28} className="text-mithila-red ml-1 group-hover:scale-110 transition-transform" fill="currentColor" />
+                  <button className="w-20 h-20 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-xl transition-all hover:scale-110 group/btn glow-on-hover">
+                    <Play size={28} className="text-mithila-red ml-1 group-hover/btn:scale-110 transition-transform" fill="currentColor" />
                   </button>
                 </div>
               </div>
               
               {/* Floating Quote Card */}
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl max-w-xs hidden md:block border-l-4 border-mithila-red">
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl max-w-xs hidden md:block border-l-4 border-mithila-red card-interactive">
                 <p className="text-sm font-medium text-foreground leading-relaxed italic">
                   "Finding balance, harmony, and joy through the preservation of our traditions."
                 </p>
@@ -195,8 +253,11 @@ const Index = () => {
             </div>
             
             {/* Content Side */}
-            <div className="lg:pl-8 order-1 lg:order-2">
-              <span className="inline-block px-4 py-1.5 bg-mithila-green/10 text-mithila-green text-sm font-medium rounded-full mb-4">Our Mission</span>
+            <div className={`lg:pl-8 order-1 lg:order-2 transition-all duration-1000 delay-200 ${missionRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <span className="badge-interactive mb-4">
+                <Target size={14} className="text-mithila-green" />
+                Our Mission
+              </span>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
                 Essence of <span className="text-mithila-red">Mithila Heritage</span>
               </h2>
@@ -209,16 +270,20 @@ const Index = () => {
                 awaken the artistic potential in everyone.
               </p>
               
-              {/* Feature List */}
+              {/* Feature List - Gamified */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: Star, text: "Master Artists" },
-                  { icon: Users, text: "Youth Programs" },
-                  { icon: Globe, text: "Global Reach" },
-                  { icon: Award, text: "Recognition" },
-                ].map((item) => (
-                  <div key={item.text} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-mithila-yellow/20 flex items-center justify-center">
+                  { icon: Star, text: "Master Artists", color: "bg-mithila-red" },
+                  { icon: Users, text: "Youth Programs", color: "bg-mithila-green" },
+                  { icon: Globe, text: "Global Reach", color: "bg-mithila-yellow" },
+                  { icon: Award, text: "Recognition", color: "bg-secondary" },
+                ].map((item, index) => (
+                  <div 
+                    key={item.text} 
+                    className="flex items-center gap-3 group cursor-default hover:translate-x-1 transition-transform"
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <div className={`w-10 h-10 rounded-full ${item.color}/20 flex items-center justify-center group-hover:scale-110 transition-transform`}>
                       <item.icon size={18} className="text-mithila-red" />
                     </div>
                     <span className="text-sm font-medium text-foreground">{item.text}</span>
@@ -226,9 +291,9 @@ const Index = () => {
                 ))}
               </div>
               
-              <Button asChild className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-8 h-12">
+              <Button asChild className="btn-gamified group ripple">
                 <Link to="/about">
-                  Learn More <ChevronRight className="ml-1" size={18} />
+                  Learn More <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={18} />
                 </Link>
               </Button>
             </div>
@@ -237,10 +302,13 @@ const Index = () => {
       </section>
 
       {/* Team / Artists Section */}
-      <section className="py-16 sm:py-20 md:py-28 bg-background">
+      <section ref={teamRef.ref} className="py-16 sm:py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block px-4 py-1.5 bg-mithila-yellow/10 text-mithila-yellow text-sm font-medium rounded-full mb-4">Our Community</span>
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${teamRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="badge-interactive mb-4">
+              <Users size={14} className="text-mithila-yellow" />
+              Our Community
+            </span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               Team at the <span className="text-mithila-green">Mithila Center</span>
             </h2>
@@ -254,17 +322,23 @@ const Index = () => {
               { img: peacockGarden, name: "Master Artists", role: "Traditional Madhubani" },
               { img: sunSymbol, name: "Cultural Programs", role: "Community Engagement" },
               { img: fishLotus, name: "Youth Initiatives", role: "Next Generation" },
-            ].map((item) => (
-              <div key={item.name} className="text-center group">
+            ].map((item, index) => (
+              <div 
+                key={item.name} 
+                className={`text-center group cursor-default transition-all duration-700 ${teamRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
                 <div className="relative w-36 h-36 sm:w-44 sm:h-44 mx-auto mb-6">
-                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-mithila-yellow/30 group-hover:border-mithila-red transition-colors duration-300">
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-mithila-yellow/30 group-hover:border-mithila-red transition-all duration-300 group-hover:scale-105">
                     <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-10 bg-mithila-red rounded-full flex items-center justify-center shadow-lg">
+                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-10 bg-mithila-red rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <Star size={18} className="text-white" />
                   </div>
+                  {/* Pulse ring on hover */}
+                  <div className="absolute inset-0 rounded-full border-2 border-mithila-red/0 group-hover:border-mithila-red/30 group-hover:scale-110 transition-all duration-500" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-1">{item.name}</h3>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-1 group-hover:text-mithila-red transition-colors">{item.name}</h3>
                 <p className="text-sm text-muted-foreground">{item.role}</p>
               </div>
             ))}
@@ -273,11 +347,18 @@ const Index = () => {
       </section>
 
       {/* UN Partnership Section */}
-      <section className="py-16 sm:py-20 md:py-28 bg-secondary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section ref={unRef.ref} className="py-16 sm:py-20 md:py-28 bg-secondary text-white relative overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute top-10 left-10 w-40 h-40 border border-mithila-yellow/10 rounded-full hidden lg:block" />
+        <div className="absolute bottom-10 right-10 w-60 h-60 border border-primary/10 rounded-full hidden lg:block" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center max-w-7xl mx-auto">
-            <div>
-              <span className="inline-block px-4 py-1.5 bg-mithila-yellow/20 text-mithila-yellow text-sm font-medium rounded-full mb-4">United Nations Partnership</span>
+            <div className={`transition-all duration-1000 ${unRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-mithila-yellow/20 rounded-full mb-6 hover:bg-mithila-yellow/30 transition-colors cursor-default">
+                <Globe size={16} className="text-mithila-yellow" />
+                <span className="text-mithila-yellow text-sm font-medium">United Nations Partnership</span>
+              </div>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
                 Art for <span className="text-mithila-yellow">Sustainable Development Goals</span>
               </h2>
@@ -287,38 +368,49 @@ const Index = () => {
                 global awareness for sustainable development.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
-                {["SDG 4 Education", "SDG 5 Gender Equality", "SDG 13 Climate Action"].map((tag) => (
-                  <span key={tag} className="px-4 py-2 bg-white/10 text-white text-sm rounded-full font-medium border border-white/20">
+                {["SDG 4 Education", "SDG 5 Gender Equality", "SDG 13 Climate Action"].map((tag, index) => (
+                  <span 
+                    key={tag} 
+                    className="px-4 py-2 bg-white/10 text-white text-sm rounded-full font-medium border border-white/20 hover:bg-white/20 hover:scale-105 transition-all cursor-default"
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
-              <Button asChild className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-8 h-12">
+              <Button asChild className="btn-gamified group ripple">
                 <Link to="/art-for-sdgs">
-                  Explore Art for SDGs <ArrowRight className="ml-2" size={18} />
+                  Explore Art for SDGs <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </Link>
               </Button>
             </div>
             
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
+            <div className={`relative transition-all duration-1000 delay-200 ${unRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="rounded-3xl overflow-hidden shadow-2xl group">
                 <img 
                   src={unExhibition} 
                   alt="UN Exhibition" 
-                  className="w-full aspect-[4/3] object-cover"
+                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="absolute -inset-4 border-2 border-mithila-yellow/20 rounded-[2rem] -z-10 hidden lg:block" />
+              {/* Floating badge */}
+              <div className="absolute -top-4 -right-4 bg-mithila-yellow text-secondary px-4 py-2 rounded-full font-semibold text-sm shadow-lg hidden md:block animate-float">
+                Since 2019
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Programs Grid */}
-      <section className="py-16 sm:py-20 md:py-28 bg-background">
+      <section ref={programsRef.ref} className="py-16 sm:py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block px-4 py-1.5 bg-mithila-green/10 text-mithila-green text-sm font-medium rounded-full mb-4">Get Involved</span>
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${programsRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="badge-interactive mb-4">
+              <Zap size={14} className="text-mithila-green" />
+              Get Involved
+            </span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               Our <span className="text-mithila-red">Programs</span>
             </h2>
@@ -330,10 +422,15 @@ const Index = () => {
               { to: "/youth-community", icon: Users, title: "Youth Programs", desc: "Workshops for next generation", color: "bg-mithila-green" },
               { to: "/world-tour", icon: Globe, title: "World Tour 2025", desc: "Mithila heritage goes global", color: "bg-mithila-yellow" },
               { to: "/recognition", icon: Award, title: "Recognition", desc: "NYC Mayor's Proclamation", color: "bg-secondary" },
-            ].map((item) => (
-              <Link key={item.to} to={item.to} className="group">
-                <div className="bg-card rounded-2xl p-5 sm:p-6 h-full border border-border hover:border-mithila-red/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${item.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+            ].map((item, index) => (
+              <Link 
+                key={item.to} 
+                to={item.to} 
+                className={`group transition-all duration-700 ${programsRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="card-interactive p-5 sm:p-6 h-full">
+                  <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${item.color} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
                     <item.icon size={26} className="text-white" />
                   </div>
                   <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-2 group-hover:text-mithila-red transition-colors">
@@ -342,6 +439,9 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground hidden sm:block">
                     {item.desc}
                   </p>
+                  <div className="mt-3 flex items-center text-mithila-red text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    Learn more <ArrowRight size={14} className="ml-1" />
+                  </div>
                 </div>
               </Link>
             ))}
@@ -350,7 +450,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 md:py-28 bg-mithila-cream relative overflow-hidden">
+      <section ref={ctaRef.ref} className="py-16 sm:py-20 md:py-28 bg-mithila-cream relative overflow-hidden">
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-72 h-72 bg-mithila-red rounded-full blur-3xl" />
@@ -358,8 +458,8 @@ const Index = () => {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-mithila-red/10 flex items-center justify-center">
+          <div className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${ctaRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-mithila-red/10 flex items-center justify-center pulse-ring">
               <Heart size={36} className="text-mithila-red" />
             </div>
             
@@ -373,10 +473,13 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-10 h-14 text-lg shadow-lg shadow-mithila-red/30">
-                <Link to="/contact">Donate Now</Link>
+              <Button asChild size="lg" className="btn-gamified group ripple h-14 text-lg">
+                <Link to="/contact">
+                  <Heart size={18} className="mr-2" />
+                  Donate Now
+                </Link>
               </Button>
-              <Button asChild size="lg" className="bg-white hover:bg-mithila-cream text-foreground border-2 border-mithila-red hover:border-mithila-red rounded-full px-10 h-14 text-lg">
+              <Button asChild size="lg" className="bg-white hover:bg-mithila-cream text-foreground border-2 border-mithila-red hover:border-mithila-red rounded-full px-10 h-14 text-lg hover:scale-105 transition-all">
                 <Link to="/contact">Partner With Us</Link>
               </Button>
             </div>
