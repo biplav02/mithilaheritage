@@ -50,15 +50,23 @@ const About = () => {
               
               <p className="text-muted-foreground mb-8">
                 Through festivals, exhibitions, educational programs, and international collaborations, the Center uses art 
-                and culture as a bridge between communities and as a platform for social impact.
+                and culture as a bridge between communities and as a platform for social impact. We envision Mithila heritage 
+                as a <strong className="text-foreground">global cultural asset</strong>—not only as an ancient tradition but 
+                as a contemporary force for creativity, sustainability, and community resilience.
               </p>
 
               <p className="text-muted-foreground mb-8">
-                Since 2019, the Center has organized the <strong className="text-foreground">Mithila Festival USA</strong>, 
-                major art exhibitions, and community events uniting artists, scholars, diaspora communities, and global 
-                audiences. Its flagship initiative, <strong className="text-foreground">"Art for SDGs: The Mithila Heritage,"</strong> 
+                Since <strong className="text-foreground">2019</strong>, the Center has organized the <strong className="text-foreground">Mithila Festival USA</strong>, 
+                major art exhibitions at the <strong className="text-foreground">United Nations Headquarters</strong>, and community events 
+                uniting artists, scholars, diaspora communities, and global audiences. Our flagship initiative, <strong className="text-foreground">"Art for SDGs: The Mithila Heritage,"</strong> 
                 connects traditional Mithila/Madhubani art with the United Nations Sustainable Development Goals, positioning 
                 culture as a driver of global awareness and social change.
+              </p>
+
+              <p className="text-muted-foreground mb-8">
+                We aspire to build institutions, festivals, and educational programs that make Mithila art and culture 
+                accessible to children, families, policymakers, and international audiences, while grounding them in values 
+                of <strong className="text-foreground">peace, equality, environmental stewardship, and human dignity</strong>.
               </p>
             </div>
           </div>
@@ -130,26 +138,28 @@ const About = () => {
 
             <div className="space-y-6">
               <div className="bg-card rounded-xl p-6 border-l-4 border-mithila-blue">
-                <h3 className="font-display text-xl font-semibold mb-2">2019</h3>
+                <h3 className="font-display text-xl font-semibold mb-2">April 2019</h3>
                 <p className="text-muted-foreground">
-                  Inaugural "Art for SDGs: The Mithila Heritage" exhibition presented at the United Nations 
-                  Headquarters in New York with the Permanent Mission of Nepal.
+                  Inaugural "Art for SDGs: The Mithila Heritage" exhibition presented at the <strong>United Nations 
+                  Headquarters</strong> in New York, in collaboration with the Permanent Mission of Nepal. This pioneering 
+                  show positioned Mithila art as a vehicle to communicate the SDGs to global delegates and visitors.
                 </p>
               </div>
 
               <div className="bg-card rounded-xl p-6 border-l-4 border-accent">
-                <h3 className="font-display text-xl font-semibold mb-2">2024</h3>
+                <h3 className="font-display text-xl font-semibold mb-2">July 2024</h3>
                 <p className="text-muted-foreground">
-                  Major UN exhibition hosted again during the High-Level Political Forum, focusing on 
-                  SDG 13: Climate Action.
+                  Major exhibition of "Art for SDGs: The Mithila Heritage" hosted at the <strong>UN Headquarters (CB-01 Curved Wall)</strong> during 
+                  the High-Level Political Forum, focusing on SDG 13: Climate Action. Artworks depicted drought, extreme weather, 
+                  and community struggles, offering a powerful climate narrative through folk painting.
                 </p>
               </div>
 
               <div className="bg-card rounded-xl p-6 border-l-4 border-primary">
-                <h3 className="font-display text-xl font-semibold mb-2">Partners & Supporters</h3>
+                <h3 className="font-display text-xl font-semibold mb-2">Key Partners</h3>
                 <p className="text-muted-foreground">
-                  Permanent Mission of Nepal, Consulate General of Nepal in New York, NYC Mayor's Office, 
-                  Queens Borough Hall, and civic institutions.
+                  Permanent Mission of Nepal to the UN, Consulate General of Nepal in New York, NYC Mayor's Office, 
+                  Queens Borough Hall, Apan Foundation, Nepalese American Foundation, and Madheshi/Terai diaspora associations.
                 </p>
               </div>
             </div>

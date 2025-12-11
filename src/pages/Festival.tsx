@@ -56,7 +56,7 @@ const Festival = () => {
               </h1>
               
               <p className="text-base lg:text-xl text-secondary/70 mb-6 lg:mb-8 max-w-xl leading-relaxed">
-                Celebrating Mithila New Year (Jur Sital) with art, culture, cuisine, 
+                Celebrating Mithila New Year (Jur Sital/Jude Sheetal) and Folk King Salhesh Jayanti with art, culture, cuisine, 
                 and community. The largest Mithila cultural celebration in the United States.
               </p>
               
@@ -149,12 +149,16 @@ const Festival = () => {
               </h2>
               
               <p className="text-muted-foreground mb-4 leading-relaxed text-lg">
-                Held annually in April around Mithila New Year, the Mithila Festival USA brings together 
-                artists, scholars, community members, and cultural enthusiasts from across the nation.
+                Held annually in April around Mithila New Year (Jur Sital) and Folk King Salhesh Jayanti, 
+                the Mithila Festival USA brings together artists, scholars, diaspora communities, and cultural enthusiasts.
+              </p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                The festival features art exhibitions and auctions, kids' workshops and awards, cultural performances, 
+                panel discussions on Mithila art, culture, literature and linguistics, and the beloved Taste of Mithila culinary showcase.
               </p>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                The festival features art exhibitions and auctions, kids' workshops and competitions, 
-                cultural performances, literary programs, and the beloved Taste of Mithila culinary showcase.
+                The festival has grown into a multi-day hybrid program (virtual and in-person) drawing participation 
+                from dignitaries, ambassadors, UN officials, and elected representatives.
               </p>
               
               <div className="flex flex-wrap gap-3">

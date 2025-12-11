@@ -33,25 +33,25 @@ const recognitions = [
     icon: FileText,
     title: "NYC Mayor's Proclamation",
     year: "2021",
-    desc: "Official proclamation declaring 'Mithila Culture and Festival Day' in New York City.",
+    desc: "Official proclamation declaring 'Mithila Culture and Festival Day' in New York City, recognizing the significant contributions of the Mithila community to the cultural diversity of NYC.",
   },
   {
     icon: Award,
     title: "U.S. Congressional Proclamation",
     year: "2021",
-    desc: "Recognition by Congresswoman Grace Meng for contributions to cultural preservation.",
+    desc: "Recognition presented by Congresswoman Grace Meng during the 2021 festival, honoring Mithila Festival USA and acknowledging its contribution to cultural promotion and preservation.",
   },
   {
     icon: Building,
     title: "NYC Mayor's Residence Event",
     year: "2022",
-    desc: "Cultural event hosted at the official residence of the Mayor of New York City.",
+    desc: "Cultural event hosted at the official residence of the Mayor of New York City, highlighting the Center's SDG-focused work in front of civic leaders and community organizations.",
   },
   {
     icon: Star,
-    title: "Queens Borough Hall",
+    title: "Queens Borough Hall Partnership",
     year: "Ongoing",
-    desc: "Regular partnership with Queens Borough Hall for cultural programs and exhibitions.",
+    desc: "Regular partnership with Queens Borough Hall for cultural programs, exhibitions, and receptions celebrating heritage and sustainability initiatives.",
   },
 ];
 
@@ -62,6 +62,8 @@ const partnerships = [
   "Queens Borough Hall",
   "Apan Foundation",
   "Nepalese American Foundation",
+  "Flushing Town Hall",
+  "Madheshi/Terai Diaspora Associations",
 ];
 
 const timeline = [

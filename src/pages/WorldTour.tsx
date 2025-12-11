@@ -88,12 +88,16 @@ const WorldTour = () => {
                 Mithila Art Goes <span className="text-mithila-red">Global</span>
               </h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                The World Tour 2025 marks a historic expansion of our mission, bringing Mithila heritage 
-                to international audiences through exhibitions, workshops, and cultural exchanges.
+                "Art for SDGs: The Mithila Heritage – World Tour 2025" marks a historic expansion of our mission, 
+                bringing Mithila heritage to international audiences through exhibitions, workshops, and cultural exchanges.
+              </p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                Starting from New York and expanding to major cities worldwide, the tour features SDG-themed exhibitions 
+                at embassies, cultural centers, universities, and prestigious galleries.
               </p>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Starting from New York and expanding to major cities worldwide, the tour features 
-                exhibitions at embassies, cultural centers, universities, and prestigious galleries.
+                The Global/World Tour concept is to present Mithila art alongside workshops, talks, and youth activities 
+                that deepen understanding of both Mithila culture and global development goals.
               </p>
               <div className="space-y-3">
                 {[

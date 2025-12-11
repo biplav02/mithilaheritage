@@ -27,7 +27,7 @@ const programs = [
   {
     icon: Users,
     title: "Community Exhibitions",
-    desc: "Showcasing community artwork through Arts Grants for Queens and other programs.",
+    desc: "Showcasing community artwork through Arts Grants for Queens, celebrating cultural festivals while raising SDG awareness among local residents.",
     color: "text-mithila-blue",
   },
   {
@@ -117,13 +117,14 @@ const YouthCommunity = () => {
                   Teaching Tradition to <span className="text-accent">Young Artists</span>
                 </h2>
                 <p className="text-muted-foreground mb-4">
-                  Our kids' art workshops introduce children to the beauty and techniques of Mithila 
-                  painting in a fun, engaging environment. Children learn about traditional motifs, 
+                  Our recurring kids' art workshops encourage children from diverse backgrounds to learn Mithila painting 
+                  techniques and discuss SDG topics in age-appropriate ways. Children learn about traditional motifs, 
                   color symbolism, and storytelling through art.
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  Workshops are held during festivals and special events, with annual competitions 
-                  that celebrate young artistic talent and award prizes for excellence.
+                  Workshops are held during festivals like Mithila Festival USA, with hands-on sessions culminating 
+                  in recognition and awards. These programs make the Center not just an exhibition organizer, but a 
+                  community education hub rooted in art and social consciousness.
                 </p>
                 <Button asChild className="bg-accent hover:bg-accent/90">
                   <Link to="/contact">Register for Workshops <ArrowRight className="ml-2" size={16} /></Link>
