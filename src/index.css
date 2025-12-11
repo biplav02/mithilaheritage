@@ -39,25 +39,15 @@
 
     --radius: 0.5rem;
 
-    /* Authentic Mithila Color Palette */
-    --mithila-sindoor: 352 76% 50%;       /* #D72638 Sindoor Red */
-    --mithila-haldi: 45 92% 57%;          /* #F4C430 Aripana Haldi Yellow */
-    --mithila-peacock: 201 64% 39%;       /* #2274A5 Janakpur Peacock Blue */
-    --mithila-leaf: 109 63% 38%;          /* #3A9D23 Madhesh Leaf Green */
-    --mithila-orchid: 291 44% 41%;        /* #8B3A96 Orchid Purple */
-    --mithila-terracotta: 14 76% 61%;     /* #E76F51 Terracotta Orange */
-    --mithila-earth: 27 47% 33%;          /* #7B4A2E Earth Brown */
-    --mithila-cream: 45 100% 92%;         /* #FFF4D9 Rice Paper Cream */
-    --mithila-pink: 325 85% 84%;          /* #F8B4D9 Soft Maithil Pink */
-    
-    /* Legacy colors mapped to new palette */
-    --mithila-red: 352 76% 50%;
-    --mithila-yellow: 45 92% 57%;
-    --mithila-green: 109 63% 38%;
+    /* Custom Mithila Colors */
+    --mithila-red: 5 89% 40%;
+    --mithila-yellow: 45 100% 64%;
+    --mithila-green: 150 80% 30%;
     --mithila-ink: 0 0% 11%;
     --mithila-white: 0 0% 100%;
     --mithila-maroon: 350 40% 18%;
-    --mithila-gold: 45 92% 57%;
+    --mithila-gold: 45 100% 64%;
+    --mithila-cream: 45 30% 97%;
 
     --sidebar-background: 350 40% 15%;
     --sidebar-foreground: 45 100% 95%;
@@ -281,14 +271,14 @@
     object-fit: cover;
   }
 
-  /* Hero Overlay - Earth Brown Theme */
+  /* Hero Overlay */
   .hero-overlay {
     background: linear-gradient(
       to right,
-      hsl(27 47% 25% / 0.95) 0%,
-      hsl(27 47% 25% / 0.85) 35%,
-      hsl(27 47% 25% / 0.6) 60%,
-      hsl(27 47% 25% / 0.3) 80%,
+      hsl(var(--secondary) / 0.97) 0%,
+      hsl(var(--secondary) / 0.9) 35%,
+      hsl(var(--secondary) / 0.6) 60%,
+      hsl(var(--secondary) / 0.3) 80%,
       transparent 100%
     );
   }
@@ -297,9 +287,9 @@
     .hero-overlay {
       background: linear-gradient(
         to bottom,
-        hsl(27 47% 25% / 0.9) 0%,
-        hsl(27 47% 25% / 0.75) 50%,
-        hsl(27 47% 25% / 0.6) 100%
+        hsl(var(--secondary) / 0.85) 0%,
+        hsl(var(--secondary) / 0.7) 50%,
+        hsl(var(--secondary) / 0.5) 100%
       );
     }
   }
@@ -547,16 +537,6 @@
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
-
-  /* Slow Zoom Animation for Hero */
-  .animate-slow-zoom {
-    animation: slow-zoom 20s ease-in-out infinite alternate;
-  }
-
-  @keyframes slow-zoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
-  }
 }
 
 @layer utilities {

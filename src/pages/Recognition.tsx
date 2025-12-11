@@ -3,7 +3,6 @@ import { Award, FileText, Building, Users, Star, ArrowRight, Calendar, CheckCirc
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { AnimatedSection } from "@/components/AnimatedSection";
 
 import recognitionBanner from "@/assets/recognition-banner.jpg";
 import nycHall from "@/assets/nyc-hall.jpg";
@@ -67,15 +66,15 @@ const Recognition = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl text-secondary-foreground">
             <div className="flex items-center gap-2 mb-4">
-              <Award size={18} className="text-mithila-terracotta" />
-              <span className="text-sm font-medium text-mithila-cream/70">Achievements & Honors</span>
+              <Award size={18} className="text-primary" />
+              <span className="text-sm font-medium text-secondary-foreground/70">Achievements & Honors</span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-mithila-cream">
-              Recognition & <span className="text-mithila-terracotta">Honors</span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary-foreground">
+              Recognition & <span className="text-primary">Honors</span>
             </h1>
-            <p className="text-lg text-mithila-cream/80 mb-8 max-w-xl">
+            <p className="text-lg text-secondary-foreground/80 mb-8 max-w-xl">
               Celebrating the milestones and recognition that validate our mission 
               to preserve and promote Mithila heritage globally.
             </p>
@@ -86,29 +85,27 @@ const Recognition = () => {
       {/* Key Recognitions */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
-            <p className="text-sm font-medium text-mithila-peacock uppercase tracking-wider mb-3">Achievements</p>
+          <div className="text-center mb-16">
+            <p className="section-subtitle mb-3">Achievements</p>
             <h2 className="font-display text-3xl md:text-5xl font-bold">
-              Key <span className="text-mithila-sindoor">Recognitions</span>
+              Key <span className="highlight-text">Recognitions</span>
             </h2>
-          </AnimatedSection>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {recognitions.map((item, index) => (
-              <AnimatedSection key={item.title} animation="scale" delay={index * 100}>
-                <div className="bg-background rounded-2xl overflow-hidden border border-border hover:border-mithila-terracotta/30 hover:shadow-lg transition-all hover:-translate-y-1">
-                  <div className="bg-gradient-to-r from-mithila-sindoor to-mithila-terracotta p-6 text-white">
-                    <div className="flex items-center justify-between">
-                      <item.icon size={32} />
-                      <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">{item.year}</span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-display text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+            {recognitions.map((item) => (
+              <div key={item.title} className="elegant-card rounded-2xl overflow-hidden">
+                <div className="bg-gradient-to-r from-primary to-mithila-gold p-6 text-primary-foreground">
+                  <div className="flex items-center justify-between">
+                    <item.icon size={32} />
+                    <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">{item.year}</span>
                   </div>
                 </div>
-              </AnimatedSection>
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -118,10 +115,10 @@ const Recognition = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <AnimatedSection animation="fade-left">
-              <p className="text-sm font-medium text-mithila-leaf uppercase tracking-wider mb-3">Historic Milestone</p>
+            <div>
+              <p className="section-subtitle mb-3">Historic Milestone</p>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                Mithila Culture & Festival <span className="text-mithila-sindoor">Day</span>
+                Mithila Culture & Festival <span className="highlight-text">Day</span>
               </h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 In 2021, the Mayor of New York City officially proclaimed "Mithila Culture and Festival Day," 
@@ -135,43 +132,41 @@ const Recognition = () => {
               <div className="space-y-3">
                 {["Official city recognition", "Cultural heritage preservation", "Community leadership"].map((item) => (
                   <div key={item} className="flex items-center gap-3">
-                    <CheckCircle size={20} className="text-mithila-leaf" />
+                    <CheckCircle size={20} className="text-primary" />
                     <span className="text-sm font-medium">{item}</span>
                   </div>
                 ))}
               </div>
-            </AnimatedSection>
+            </div>
             
-            <AnimatedSection animation="fade-right" className="rounded-3xl overflow-hidden shadow-2xl">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img src={nycHall} alt="NYC Recognition" className="w-full aspect-[4/3] object-cover" />
-            </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-mithila-earth text-mithila-cream">
+      <section className="py-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
-            <p className="text-sm font-medium text-mithila-terracotta uppercase tracking-wider mb-3">Our Journey</p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-mithila-cream">
-              Journey of <span className="text-mithila-terracotta">Recognition</span>
+          <div className="text-center mb-16">
+            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Our Journey</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-secondary-foreground">
+              Journey of <span className="text-primary">Recognition</span>
             </h2>
-          </AnimatedSection>
+          </div>
           
           <div className="max-w-3xl mx-auto">
             <div className="space-y-6">
               {timeline.map((item, index) => (
-                <AnimatedSection key={item.year} animation="fade-left" delay={index * 100}>
-                  <div className="flex gap-6 items-center">
-                    <div className="flex-shrink-0 w-20 h-20 rounded-full bg-mithila-terracotta/20 flex items-center justify-center border-2 border-mithila-terracotta">
-                      <span className="font-display font-bold text-mithila-terracotta text-lg">{item.year}</span>
-                    </div>
-                    <div className="flex-1 bg-mithila-cream/10 rounded-2xl p-4">
-                      <p className="font-medium text-mithila-cream">{item.event}</p>
-                    </div>
+                <div key={item.year} className="flex gap-6 items-center">
+                  <div className="flex-shrink-0 w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary">
+                    <span className="font-display font-bold text-primary text-lg">{item.year}</span>
                   </div>
-                </AnimatedSection>
+                  <div className="flex-1 bg-secondary-foreground/10 rounded-2xl p-4">
+                    <p className="font-medium text-secondary-foreground">{item.event}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -181,47 +176,45 @@ const Recognition = () => {
       {/* Partners */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center mb-12">
-            <p className="text-sm font-medium text-mithila-orchid uppercase tracking-wider mb-3">Collaborations</p>
+          <div className="text-center mb-12">
+            <p className="section-subtitle mb-3">Collaborations</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold">
-              Our <span className="text-mithila-peacock">Partners</span>
+              Our <span className="highlight-text">Partners</span>
             </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Our work is made possible through partnerships with government agencies, 
               diplomatic missions, and community organizations.
             </p>
-          </AnimatedSection>
+          </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {partnerships.map((partner, index) => (
-              <AnimatedSection key={partner} animation="scale" delay={index * 50}>
-                <div className="bg-background rounded-2xl p-6 text-center border border-border hover:border-mithila-peacock/30 hover:shadow-md transition-all">
-                  <Users size={28} className="mx-auto mb-3 text-mithila-peacock" />
-                  <p className="text-sm font-medium">{partner}</p>
-                </div>
-              </AnimatedSection>
+            {partnerships.map((partner) => (
+              <div key={partner} className="elegant-card rounded-2xl p-6 text-center">
+                <Users size={28} className="mx-auto mb-3 text-primary" />
+                <p className="text-sm font-medium">{partner}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-mithila-cream to-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="max-w-4xl mx-auto text-center">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-mithila-sindoor/10 flex items-center justify-center">
-              <Award size={36} className="text-mithila-sindoor" />
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
+              <Award size={36} className="text-primary" />
             </div>
             <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-              Support Our <span className="text-mithila-sindoor">Mission</span>
+              Support Our <span className="highlight-text">Mission</span>
             </h2>
             <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
               Help us continue our work in cultural preservation and community building. 
               Your support makes recognition possible.
             </p>
-            <Button asChild size="lg" className="bg-mithila-sindoor hover:bg-mithila-sindoor/90 text-white rounded-full px-10">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 rounded-full px-10">
               <Link to="/contact">Get Involved <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
-          </AnimatedSection>
+          </div>
         </div>
       </section>
 
