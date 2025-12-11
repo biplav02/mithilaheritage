@@ -70,26 +70,26 @@ const ArtForSDGs = () => {
       {/* Hero Section */}
       <section ref={heroRef.ref} className="relative min-h-[85vh] flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
         {/* Subtle decorative elements */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-20 hidden lg:block">
           <div className="absolute top-40 right-20 w-64 h-64 border border-mithila-red/30 rounded-full" />
           <div className="absolute bottom-32 left-20 w-48 h-48 border border-mithila-yellow/40 rounded-full" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className={`transition-all duration-1000 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-[2px] bg-mithila-red" />
-                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">Flagship Initiative</span>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Content - Always first on mobile */}
+            <div className={`order-1 transition-all duration-1000 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="flex items-center gap-4 mb-4 lg:mb-6">
+                <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+                <span className="text-xs lg:text-sm font-medium text-mithila-red tracking-widest uppercase">Flagship Initiative</span>
               </div>
               
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary leading-[1.1]">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 lg:mb-6 text-secondary leading-[1.1]">
                 Art for SDGs:
                 <span className="block text-mithila-red">The Mithila Heritage</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-secondary/70 mb-8 max-w-xl leading-relaxed">
+              <p className="text-base lg:text-xl text-secondary/70 mb-6 lg:mb-8 max-w-xl leading-relaxed">
                 Connecting traditional Mithila art with the United Nations Sustainable Development Goals, 
                 positioning culture as a driver of global awareness and social change.
               </p>
@@ -123,16 +123,15 @@ const ArtForSDGs = () => {
             </div>
             
             {/* Image Side */}
-            <div className={`relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <div className={`order-2 relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img 
                   src={artForSdgsBanner} 
                   alt="Art for SDGs" 
-                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full aspect-square lg:aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-mithila-red/30 rounded-full hidden lg:block" />
-              <div className="absolute top-1/2 -right-8 w-16 h-16 bg-mithila-yellow/20 rounded-full hidden lg:block" />
+              <div className="absolute -top-4 -right-4 w-16 lg:w-24 h-16 lg:h-24 border-2 border-mithila-red/30 rounded-full hidden sm:block" />
             </div>
           </div>
         </div>

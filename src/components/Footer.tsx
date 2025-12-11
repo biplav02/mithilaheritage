@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter, Youtube, Mail, MapPin, Phone } from "luci
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-white">
+    <footer className="bg-white border-t border-border">
       {/* Decorative Top Border */}
       <div className="h-1 bg-gradient-to-r from-mithila-red via-mithila-yellow to-mithila-green" />
 
@@ -16,10 +16,11 @@ const Footer = () => {
                 <span className="text-white font-display font-bold text-xl">म</span>
               </div>
               <div>
-                <h3 className="font-display font-bold text-xl text-white tracking-wide uppercase">Mithila</h3>
+                <p className="text-xs text-mithila-red font-medium tracking-widest uppercase">Mithila Center</p>
+                <h3 className="font-display font-bold text-xl text-secondary tracking-wide">USA</h3>
               </div>
             </div>
-            <p className="text-sm text-white/70 mb-6 leading-relaxed">
+            <p className="text-sm text-secondary/60 mb-6 leading-relaxed">
               We are committed to excellence and building for the glory of Mithila art, culture, and traditions.
             </p>
             <div className="flex gap-3">
@@ -27,9 +28,9 @@ const Footer = () => {
                 <a 
                   key={i}
                   href="#" 
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-mithila-red flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-mithila-cream hover:bg-mithila-red hover:text-white flex items-center justify-center transition-colors"
                 >
-                  <Icon size={18} className="text-white" />
+                  <Icon size={18} className="text-secondary" />
                 </a>
               ))}
             </div>
@@ -37,7 +38,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 text-white">Quick Links</h4>
+            <h4 className="font-display font-semibold text-lg mb-6 text-secondary">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               {[
                 { to: "/about", label: "About Us" },
@@ -49,7 +50,7 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link 
                     to={link.to} 
-                    className="text-white/70 hover:text-mithila-yellow transition-colors"
+                    className="text-secondary/60 hover:text-mithila-red transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -60,7 +61,7 @@ const Footer = () => {
 
           {/* Programs */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 text-white">Programs</h4>
+            <h4 className="font-display font-semibold text-lg mb-6 text-secondary">Programs</h4>
             <ul className="space-y-3 text-sm">
               {[
                 { to: "/youth-community", label: "Youth Programs" },
@@ -72,7 +73,7 @@ const Footer = () => {
                 <li key={i}>
                   <Link 
                     to={link.to} 
-                    className="text-white/70 hover:text-mithila-yellow transition-colors"
+                    className="text-secondary/60 hover:text-mithila-red transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -83,34 +84,34 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 text-white">Contact Us</h4>
+            <h4 className="font-display font-semibold text-lg mb-6 text-secondary">Contact Us</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="mt-0.5 text-mithila-yellow" />
-                <span className="text-white/70">New York, NY<br />United States</span>
+                <MapPin size={18} className="mt-0.5 text-mithila-red" />
+                <span className="text-secondary/60">New York, NY<br />United States</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-mithila-yellow" />
-                <a href="mailto:info@mithilacenter.org" className="text-white/70 hover:text-mithila-yellow transition-colors">
+                <Mail size={18} className="text-mithila-red" />
+                <a href="mailto:info@mithilacenter.org" className="text-secondary/60 hover:text-mithila-red transition-colors">
                   info@mithilacenter.org
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-mithila-yellow" />
-                <span className="text-white/70">+1 (xxx) xxx-xxxx</span>
+                <Phone size={18} className="text-mithila-red" />
+                <span className="text-secondary/60">+1 (xxx) xxx-xxxx</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
+        <div className="mt-16 pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary/50">
             <p>© 2024 Mithila Center USA. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-mithila-yellow transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-mithila-yellow transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-mithila-yellow transition-colors">Cookies</a>
+              <a href="#" className="hover:text-mithila-red transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-mithila-red transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-mithila-red transition-colors">Cookies</a>
             </div>
           </div>
         </div>

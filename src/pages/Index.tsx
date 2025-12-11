@@ -44,43 +44,43 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section - Modern Clean Design Like mithila.uk */}
+      {/* Hero Section - Mobile First with Text Overlay */}
       <section ref={heroRef.ref} className="relative min-h-screen flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
         {/* Subtle Pattern Background */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 hidden lg:block">
           <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
           <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            {/* Content Side */}
-            <div className="order-2 lg:order-1">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+            {/* Content Side - Always on top for mobile */}
+            <div className="order-1 lg:order-1">
               {/* Subtitle Line */}
-              <div className={`flex items-center gap-4 mb-6 transition-all duration-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <div className="w-12 h-[2px] bg-mithila-red" />
-                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">Discover Your Soul Serenity</span>
+              <div className={`flex items-center gap-4 mb-4 lg:mb-6 transition-all duration-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+                <span className="text-xs lg:text-sm font-medium text-mithila-red tracking-widest uppercase">Discover Your Soul Serenity</span>
               </div>
               
-              <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.05] text-secondary tracking-tight transition-all duration-1000 delay-200 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h1 className={`font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 lg:mb-8 leading-[1.1] text-secondary tracking-tight transition-all duration-1000 delay-200 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 Mithila
                 <span className="block text-mithila-red">Center USA</span>
               </h1>
               
-              <p className={`text-lg sm:text-xl text-secondary/70 mb-10 max-w-xl leading-relaxed transition-all duration-1000 delay-400 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <p className={`text-base lg:text-xl text-secondary/70 mb-6 lg:mb-10 max-w-xl leading-relaxed transition-all duration-1000 delay-400 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 Preserving the timeless beauty of Madhubani art while connecting ancient traditions 
                 with modern global communities. Join us in celebrating 5000 years of heritage.
               </p>
               
               {/* CTA Buttons */}
-              <div className={`flex flex-col sm:flex-row gap-4 mb-12 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <Button asChild variant="hero" size="hero" className="group">
+              <div className={`flex flex-col sm:flex-row gap-3 lg:gap-4 mb-8 lg:mb-12 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <Button asChild variant="hero" size="hero" className="group text-base lg:text-lg h-12 lg:h-14">
                   <Link to="/about">
                     Read More
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                   </Link>
                 </Button>
-                <Button asChild variant="heroDark" size="hero" className="group">
+                <Button asChild variant="heroDark" size="hero" className="group text-base lg:text-lg h-12 lg:h-14">
                   <Link to="/gallery">
                     View Gallery
                   </Link>
@@ -88,7 +88,7 @@ const Index = () => {
               </div>
 
               {/* Stats Row */}
-              <div className={`flex flex-wrap gap-8 sm:gap-12 pt-10 border-t border-secondary/10 transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className={`flex flex-wrap gap-6 lg:gap-12 pt-6 lg:pt-10 border-t border-secondary/10 transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 {[
                   { num: "5000+", label: "Years of Heritage", icon: Trophy },
                   { num: "6+", label: "UN Exhibitions", icon: Globe },
@@ -100,29 +100,29 @@ const Index = () => {
                     style={{ transitionDelay: `${800 + index * 100}ms` }}
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <stat.icon size={18} className="text-mithila-red/60 group-hover:text-mithila-red transition-colors" />
-                      <p className="font-display text-3xl sm:text-4xl font-bold text-secondary">{stat.num}</p>
+                      <stat.icon size={16} className="text-mithila-red/60 group-hover:text-mithila-red transition-colors" />
+                      <p className="font-display text-2xl lg:text-4xl font-bold text-secondary">{stat.num}</p>
                     </div>
-                    <p className="text-sm text-secondary/50 group-hover:text-secondary/70 transition-colors">{stat.label}</p>
+                    <p className="text-xs lg:text-sm text-secondary/50 group-hover:text-secondary/70 transition-colors">{stat.label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Image Side - Mithila Art Display */}
-            <div className={`order-1 lg:order-2 relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            {/* Image Side - Below content on mobile */}
+            <div className={`order-2 lg:order-2 relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative">
                 {/* Main Image with artistic frame */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <img 
                     src={heroDark} 
                     alt="Traditional Mithila Madhubani Art" 
-                    className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full aspect-square lg:aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 
                 {/* Floating secondary image */}
-                <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
+                <div className="absolute -bottom-4 -left-4 lg:-bottom-8 lg:-left-8 w-24 lg:w-40 h-24 lg:h-40 rounded-xl lg:rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden sm:block">
                   <img 
                     src={peacockArt} 
                     alt="Mithila Peacock Art" 
@@ -131,8 +131,7 @@ const Index = () => {
                 </div>
                 
                 {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-mithila-red/30 rounded-full hidden lg:block" />
-                <div className="absolute top-1/2 -right-8 w-16 h-16 bg-mithila-yellow/20 rounded-full hidden lg:block" />
+                <div className="absolute -top-4 -right-4 w-16 lg:w-24 h-16 lg:h-24 border-2 border-mithila-red/30 rounded-full hidden sm:block" />
               </div>
             </div>
           </div>
@@ -332,22 +331,22 @@ const Index = () => {
       </section>
 
       {/* UN Partnership Section */}
-      <section ref={unRef.ref} className="py-16 sm:py-20 md:py-28 bg-secondary text-white relative overflow-hidden">
+      <section ref={unRef.ref} className="py-16 sm:py-20 md:py-28 bg-mithila-cream relative overflow-hidden">
         {/* Background decorations */}
-        <div className="absolute top-10 left-10 w-40 h-40 border border-mithila-yellow/10 rounded-full hidden lg:block" />
-        <div className="absolute bottom-10 right-10 w-60 h-60 border border-primary/10 rounded-full hidden lg:block" />
+        <div className="absolute top-10 left-10 w-40 h-40 border border-mithila-red/10 rounded-full hidden lg:block" />
+        <div className="absolute bottom-10 right-10 w-60 h-60 border border-mithila-yellow/20 rounded-full hidden lg:block" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center max-w-7xl mx-auto">
             <div className={`transition-all duration-1000 ${unRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-mithila-yellow/20 rounded-full mb-6 hover:bg-mithila-yellow/30 transition-colors cursor-default">
-                <Globe size={16} className="text-mithila-yellow" />
-                <span className="text-mithila-yellow text-sm font-medium">United Nations Partnership</span>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-[2px] bg-mithila-red" />
+                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">United Nations Partnership</span>
               </div>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
-                Art for <span className="text-mithila-yellow">Sustainable Development Goals</span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-secondary leading-tight">
+                Art for <span className="text-mithila-red">Sustainable Development Goals</span>
               </h2>
-              <p className="text-white/80 mb-6 leading-relaxed text-base sm:text-lg">
+              <p className="text-secondary/70 mb-6 leading-relaxed text-base sm:text-lg">
                 Since 2019, Mithila Center USA has presented exhibitions at the UN Headquarters in New York, 
                 partnering with the Permanent Mission of Nepal to showcase how traditional art can drive 
                 global awareness for sustainable development.
@@ -356,14 +355,14 @@ const Index = () => {
                 {["SDG 4 Education", "SDG 5 Gender Equality", "SDG 13 Climate Action"].map((tag, index) => (
                   <span 
                     key={tag} 
-                    className="px-4 py-2 bg-white/10 text-white text-sm rounded-full font-medium border border-white/20 hover:bg-white/20 hover:scale-105 transition-all cursor-default"
+                    className="px-4 py-2 bg-white text-secondary text-sm rounded-full font-medium border border-border shadow-sm hover:shadow-md hover:scale-105 transition-all cursor-default"
                     style={{ transitionDelay: `${index * 100}ms` }}
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <Button asChild className="btn-gamified group ripple">
+              <Button asChild variant="hero" size="hero" className="group">
                 <Link to="/art-for-sdgs">
                   Explore Art for SDGs <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </Link>
@@ -371,14 +370,14 @@ const Index = () => {
             </div>
             
             <div className={`relative transition-all duration-1000 delay-200 ${unRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="rounded-3xl overflow-hidden shadow-2xl group">
+              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
                 <img 
                   src={unExhibition} 
                   alt="UN Exhibition" 
                   className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute -inset-4 border-2 border-mithila-yellow/20 rounded-[2rem] -z-10 hidden lg:block" />
+              <div className="absolute -inset-4 border-2 border-mithila-red/20 rounded-[2rem] -z-10 hidden lg:block" />
               {/* Floating badge */}
               <div className="absolute -top-4 -right-4 bg-mithila-yellow text-secondary px-4 py-2 rounded-full font-semibold text-sm shadow-lg hidden md:block animate-float">
                 Since 2019

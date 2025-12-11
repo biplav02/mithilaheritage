@@ -25,31 +25,31 @@ const WorldTour = () => {
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
         {/* Subtle decorative elements */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-20 hidden lg:block">
           <div className="absolute top-40 right-20 w-64 h-64 border border-mithila-red/30 rounded-full" />
           <div className="absolute bottom-32 left-20 w-48 h-48 border border-mithila-yellow/40 rounded-full" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-[2px] bg-mithila-red" />
-                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">Global Initiative 2025</span>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Content - Always first on mobile */}
+            <div className="order-1">
+              <div className="flex items-center gap-4 mb-4 lg:mb-6">
+                <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+                <span className="text-xs lg:text-sm font-medium text-mithila-red tracking-widest uppercase">Global Initiative 2025</span>
               </div>
               
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary leading-[1.1]">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 lg:mb-6 text-secondary leading-[1.1]">
                 Art for SDGs:
                 <span className="block text-mithila-red">World Tour</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-secondary/70 mb-8 max-w-xl leading-relaxed">
+              <p className="text-base lg:text-xl text-secondary/70 mb-6 lg:mb-8 max-w-xl leading-relaxed">
                 Taking Mithila heritage global! Join us as we bring cultural diplomacy 
                 and artistic excellence to international stages worldwide.
               </p>
               
-              <Button asChild variant="hero" size="hero" className="group">
+              <Button asChild variant="hero" size="hero" className="group text-base lg:text-lg h-12 lg:h-14">
                 <Link to="/contact">
                   Join the Tour 
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
@@ -58,18 +58,18 @@ const WorldTour = () => {
             </div>
             
             {/* Image Side */}
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <div className="order-2 relative">
+              <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img 
                   src={worldTourBanner} 
                   alt="World Tour" 
-                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full aspect-square lg:aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
+              <div className="absolute -bottom-4 -left-4 lg:-bottom-8 lg:-left-8 w-24 lg:w-40 h-24 lg:h-40 rounded-xl lg:rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden sm:block">
                 <img src={peacockGarden} alt="Mithila Art" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-mithila-red/30 rounded-full hidden lg:block" />
+              <div className="absolute -top-4 -right-4 w-16 lg:w-24 h-16 lg:h-24 border-2 border-mithila-red/30 rounded-full hidden sm:block" />
             </div>
           </div>
         </div>
