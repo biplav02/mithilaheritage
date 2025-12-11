@@ -40,7 +40,7 @@
     --input: 30 20% 85%;
     --ring: 350 76% 51%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     /* Custom Mithila Colors */
     --mithila-red: 350 76% 51%;
@@ -117,6 +117,7 @@
 }
 
 @layer components {
+  /* Mithila Decorative Border */
   .mithila-border {
     border: 3px solid hsl(var(--mithila-red));
     position: relative;
@@ -128,6 +129,7 @@
     inset: 4px;
     border: 2px solid hsl(var(--mithila-orange));
     pointer-events: none;
+    border-radius: inherit;
   }
 
   .mithila-border::after {
@@ -136,15 +138,18 @@
     inset: 10px;
     border: 1px dashed hsl(var(--mithila-yellow));
     pointer-events: none;
+    border-radius: inherit;
   }
 
+  /* Mithila Pattern Background */
   .mithila-pattern {
     background-image: 
-      radial-gradient(circle at 25% 25%, hsl(var(--mithila-red) / 0.1) 2px, transparent 2px),
-      radial-gradient(circle at 75% 75%, hsl(var(--mithila-orange) / 0.1) 2px, transparent 2px);
+      radial-gradient(circle at 25% 25%, hsl(var(--mithila-red) / 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(var(--mithila-orange) / 0.08) 2px, transparent 2px);
     background-size: 40px 40px;
   }
 
+  /* Colorful Divider */
   .mithila-divider {
     height: 4px;
     background: linear-gradient(
@@ -156,5 +161,175 @@
       hsl(var(--mithila-blue))
     );
     border-radius: 2px;
+  }
+
+  /* 3D Card Effect */
+  .card-3d {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 
+      0 20px 40px -12px rgba(0, 0, 0, 0.25),
+      0 0 30px hsl(var(--primary) / 0.15);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: hsl(var(--background) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--mithila-yellow) / 0.2) 50%,
+      hsl(var(--background)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Hover Lift */
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Gradient Border */
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius) + 2px);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--mithila-red)),
+      hsl(var(--mithila-orange)),
+      hsl(var(--mithila-yellow)),
+      hsl(var(--mithila-green)),
+      hsl(var(--mithila-blue))
+    );
+    z-index: -1;
+  }
+
+  /* Image Hover Zoom */
+  .image-zoom {
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  .image-zoom img {
+    transition: transform 0.5s ease;
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.08);
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--mithila-red)),
+      hsl(var(--mithila-orange)),
+      hsl(var(--mithila-yellow))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated Underline */
+  .animated-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+    transition: width 0.3s ease;
+  }
+
+  .animated-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Pulse Ring */
+  .pulse-ring {
+    position: relative;
+  }
+
+  .pulse-ring::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid hsl(var(--primary) / 0.5);
+    animation: pulse 2s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Stagger Animation */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
   }
 }
