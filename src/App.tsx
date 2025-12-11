@@ -4,6 +4,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import About from "./pages/About";
+import ArtForSDGs from "./pages/ArtForSDGs";
+import Festival from "./pages/Festival";
+import WorldTour from "./pages/WorldTour";
+import YouthCommunity from "./pages/YouthCommunity";
+import Recognition from "./pages/Recognition";
+import FutureInitiatives from "./pages/FutureInitiatives";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,7 +25,15 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/about" element={<About />} />
+          <Route path="/art-for-sdgs" element={<ArtForSDGs />} />
+          <Route path="/festival" element={<Festival />} />
+          <Route path="/world-tour" element={<WorldTour />} />
+          <Route path="/youth-community" element={<YouthCommunity />} />
+          <Route path="/recognition" element={<Recognition />} />
+          <Route path="/future-initiatives" element={<FutureInitiatives />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
