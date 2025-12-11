@@ -68,15 +68,15 @@ const ArtForSDGs = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section ref={heroRef.ref} className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section ref={heroRef.ref} className="relative min-h-[90vh] flex items-center overflow-hidden bg-secondary">
         <div className="absolute inset-0">
           <img 
             src={artForSdgsBanner} 
             alt="Art for SDGs" 
-            className={`w-full h-full object-cover transition-all duration-[2s] ${heroRef.isInView ? 'scale-100 opacity-100' : 'scale-110 opacity-0'}`} 
+            className={`w-full h-full object-cover transition-all duration-[2s] ${heroRef.isInView ? 'scale-100 opacity-50' : 'scale-110 opacity-0'}`} 
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/98 via-secondary/85 to-secondary/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary/70 via-transparent to-secondary/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/50" />
         </div>
         
         {/* Animated Decorative Elements */}
@@ -123,18 +123,18 @@ const ArtForSDGs = () => {
             </div>
 
             {/* Stats Row */}
-            <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-8 border-t border-secondary-foreground/20 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-8 pt-8 border-t border-secondary-foreground/30 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               {impactStats.map((stat, i) => (
                 <div 
                   key={i} 
-                  className="text-center group cursor-default hover:scale-105 transition-transform"
+                  className="text-center group cursor-default hover:scale-105 transition-transform bg-secondary-foreground/5 rounded-xl p-4"
                   style={{ transitionDelay: `${600 + i * 100}ms` }}
                 >
                   <div className="flex items-center justify-center gap-2 mb-1">
-                    <stat.icon size={16} className="text-primary/70 group-hover:text-primary transition-colors" />
-                    <p className="font-display text-2xl md:text-3xl font-bold text-primary">{stat.value}</p>
+                    <stat.icon size={18} className="text-mithila-yellow group-hover:text-primary transition-colors" />
+                    <p className="font-display text-2xl md:text-3xl font-bold text-mithila-yellow">{stat.value}</p>
                   </div>
-                  <p className="text-xs md:text-sm text-secondary-foreground/70">{stat.label}</p>
+                  <p className="text-xs md:text-sm text-secondary-foreground font-medium">{stat.label}</p>
                 </div>
               ))}
             </div>
