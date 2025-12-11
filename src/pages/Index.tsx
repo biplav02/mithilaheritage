@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Users, Award, Heart, Calendar, Play, ChevronRight, Sparkles, Star, MapPin, Zap, Target, Trophy } from "lucide-react";
+import { ArrowRight, Globe, Users, Award, Heart, Calendar, Play, ChevronRight, Sparkles, Star, MapPin, Zap, Target, Trophy, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useEffect, useRef, useState } from "react";
+import { useInView } from "@/hooks/useAnimations";
 
 // Import Mithila artwork images
 import heroDark from "@/assets/hero-mithila-dark.jpg";
@@ -20,31 +20,6 @@ import fishPair from "@/assets/gallery/mithila-fish-pair.jpg";
 import peacockGarden from "@/assets/gallery/mithila-peacock-garden.jpg";
 import villageScene from "@/assets/gallery/mithila-village-scene.jpg";
 import elephant from "@/assets/gallery/mithila-elephant.jpg";
-
-// Custom hook for scroll animations
-const useInView = (threshold = 0.1) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
-      },
-      { threshold }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, isInView };
-};
 
 const Index = () => {
   const featuredArt = [

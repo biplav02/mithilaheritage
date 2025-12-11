@@ -1,39 +1,14 @@
 import { Link } from "react-router-dom";
-import { Calendar, MapPin, Palette, Music, Users, Utensils, Award, ArrowRight, Play, Sparkles, Star } from "lucide-react";
+import { Calendar, MapPin, Palette, Music, Users, Utensils, Award, ArrowRight, Play, Sparkles, Star, Heart, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useEffect, useRef, useState } from "react";
+import { useInView } from "@/hooks/useAnimations";
 
 import festivalBanner from "@/assets/festival-celebration.jpg";
 import festivalDance from "@/assets/gallery/mithila-festival-dance.jpg";
 import kidsWorkshop from "@/assets/gallery/mithila-kids-workshop.jpg";
 import festivalFood from "@/assets/gallery/mithila-festival-food.jpg";
-
-// Custom hook for scroll animations
-const useInView = (threshold = 0.1) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
-      },
-      { threshold }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, isInView };
-};
 
 const festivalFeatures = [
   { icon: Palette, title: "Art Exhibitions", desc: "Curated displays of traditional and contemporary Mithila artwork", img: festivalDance },
