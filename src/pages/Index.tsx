@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Users, Award, Heart, Calendar, Palette, Play, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight, Globe, Users, Award, Heart, Calendar, Play, ChevronRight, Sparkles, Star, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 // Import Mithila artwork images
-import heroArtistic from "@/assets/hero-artistic.jpg";
+import heroDark from "@/assets/hero-mithila-dark.jpg";
 import peacockArt from "@/assets/mithila-peacock.jpg";
 import fishLotus from "@/assets/mithila-fish-lotus.jpg";
 import sunSymbol from "@/assets/mithila-sun-symbol.jpg";
@@ -22,63 +22,65 @@ import elephant from "@/assets/gallery/mithila-elephant.jpg";
 
 const Index = () => {
   const featuredArt = [
-    { img: peacockArt, title: "Divine Peacock" },
-    { img: floralBorder, title: "Lotus Mandala" },
-    { img: sunMandala, title: "Sun Symbol" },
-    { img: elephant, title: "Sacred Elephant" },
-    { img: fishPair, title: "Fish Pair" },
-    { img: villageScene, title: "Village Life" },
+    { img: peacockArt, title: "Divine Peacock", category: "Traditional" },
+    { img: floralBorder, title: "Lotus Mandala", category: "Floral" },
+    { img: sunMandala, title: "Sun Symbol", category: "Sacred" },
+    { img: elephant, title: "Sacred Elephant", category: "Wildlife" },
+    { img: fishPair, title: "Fish Pair", category: "Prosperity" },
+    { img: villageScene, title: "Village Life", category: "Folk" },
   ];
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section - Artistic Design */}
-      <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section - Premium Design */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-secondary">
+        {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img 
-            src={heroArtistic} 
+            src={heroDark} 
             alt="Traditional Mithila Madhubani Art" 
-            className="w-full h-full object-cover scale-105 animate-slow-zoom"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 hero-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/50" />
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-20 right-10 w-20 h-20 border-2 border-primary/30 rounded-full animate-float hidden lg:block" />
-        <div className="absolute bottom-32 right-20 w-12 h-12 bg-primary/20 rounded-full animate-float delay-300 hidden lg:block" />
+        <div className="absolute top-1/4 right-[10%] w-32 h-32 border border-mithila-yellow/30 rounded-full animate-pulse hidden lg:block" />
+        <div className="absolute bottom-1/4 right-[15%] w-16 h-16 bg-mithila-red/20 rounded-full hidden lg:block" />
+        <div className="absolute top-1/3 right-[5%] w-2 h-2 bg-mithila-yellow rounded-full animate-ping hidden lg:block" />
         
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="max-w-2xl py-8 md:py-0">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl py-12 md:py-0">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30 animate-fade-in-up">
-              <Sparkles size={16} className="text-primary" />
-              <span className="text-sm font-medium text-primary">Preserving Heritage Since 2019</span>
+            <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-mithila-yellow/10 backdrop-blur-sm rounded-full border border-mithila-yellow/30">
+              <Sparkles size={18} className="text-mithila-yellow" />
+              <span className="text-sm font-medium text-mithila-yellow tracking-wide">Preserving Heritage Since 2019</span>
             </div>
             
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-secondary-foreground animate-fade-in-up delay-100">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white tracking-tight">
               Embark on a Journey of{" "}
-              <span className="text-primary">Cultural Heritage</span>{" "}
-              <span className="block mt-2">& Preserve the Soul of{" "}
-              <span className="text-primary">Mithila Art</span></span>
+              <span className="text-mithila-yellow">Cultural Heritage</span>
+              <span className="block mt-3">& Preserve the Soul of{" "}
+              <span className="text-mithila-red">Mithila Art</span></span>
             </h1>
             
-            <p className="text-base sm:text-lg text-secondary-foreground/80 mb-8 max-w-xl animate-fade-in-up delay-200 leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed">
               At the heart of our mission, we guide individuals toward cultural preservation 
               and artistic excellence, nurturing traditions with compassion for future generations.
             </p>
             
-            {/* Fixed Buttons - Proper contrast */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300">
-              <Button asChild size="lg" className="hero-btn-primary rounded-full px-8 text-base sm:text-lg shadow-lg">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Button asChild size="lg" className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-10 text-lg h-14 shadow-lg shadow-mithila-red/30 transition-all hover:scale-105">
                 <Link to="/about">
                   Discover More
-                  <ArrowRight className="ml-2" size={18} />
+                  <ArrowRight className="ml-2" size={20} />
                 </Link>
               </Button>
-              <Button asChild size="lg" className="hero-btn-secondary rounded-full px-8 text-base sm:text-lg">
+              <Button asChild size="lg" className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 hover:border-white/50 rounded-full px-10 text-lg h-14 backdrop-blur-sm transition-all">
                 <Link to="/gallery">
                   View Gallery
                 </Link>
@@ -86,15 +88,15 @@ const Index = () => {
             </div>
 
             {/* Stats Row */}
-            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 pt-8 border-t border-secondary-foreground/20 animate-fade-in-up delay-400">
+            <div className="flex flex-wrap gap-8 sm:gap-12 pt-10 border-t border-white/20">
               {[
                 { num: "5000+", label: "Years of Heritage" },
                 { num: "6+", label: "UN Exhibitions" },
                 { num: "100+", label: "Artists Supported" },
               ].map((stat) => (
-                <div key={stat.label} className="text-secondary-foreground">
-                  <p className="font-display text-2xl sm:text-3xl font-bold text-primary">{stat.num}</p>
-                  <p className="text-xs sm:text-sm opacity-70">{stat.label}</p>
+                <div key={stat.label} className="text-center sm:text-left">
+                  <p className="font-display text-3xl sm:text-4xl font-bold text-mithila-yellow">{stat.num}</p>
+                  <p className="text-sm text-white/60 mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -102,41 +104,47 @@ const Index = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-primary rounded-full animate-scroll-down" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
+          <span className="text-xs text-white/50 tracking-widest uppercase">Scroll</span>
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+            <div className="w-1 h-3 bg-mithila-yellow rounded-full animate-bounce" />
           </div>
         </div>
       </section>
 
       {/* Featured Art Grid */}
-      <section className="py-12 sm:py-16 md:py-20 bg-card">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10 sm:mb-16">
-            <p className="section-subtitle mb-3">Artistic Excellence</p>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold">
-              Inner <span className="highlight-text">Peace</span> in Every Moment
+      <section className="py-16 sm:py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <span className="inline-block px-4 py-1.5 bg-mithila-red/10 text-mithila-red text-sm font-medium rounded-full mb-4">Artistic Excellence</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+              Inner <span className="text-mithila-green">Peace</span> in Every Moment
             </h2>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm sm:text-base">
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base sm:text-lg">
               Discover the timeless beauty of Mithila art through our curated collection of masterpieces.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {featuredArt.map((item, index) => (
               <Link 
                 key={item.title}
                 to="/gallery"
-                className={`elegant-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer ${
-                  index === 0 ? 'col-span-2 md:col-span-1 row-span-1 md:row-span-2' : ''
+                className={`group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-mithila-red/50 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 ${
+                  index === 0 ? 'md:row-span-2' : ''
                 }`}
-                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="image-zoom aspect-square">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
                 </div>
-                <div className="p-3 sm:p-4 bg-background">
-                  <h3 className="font-display text-sm sm:text-lg font-semibold group-hover:text-primary transition-colors">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <span className="text-xs text-mithila-yellow font-medium uppercase tracking-wider">{item.category}</span>
+                  <h3 className="font-display text-lg sm:text-xl font-semibold text-white mt-1">
                     {item.title}
                   </h3>
                 </div>
@@ -144,62 +152,83 @@ const Index = () => {
             ))}
           </div>
           
-          <div className="text-center mt-8 sm:mt-12">
-            <Button asChild className="hero-btn-secondary rounded-full px-6 sm:px-8">
+          <div className="text-center mt-10 sm:mt-14">
+            <Button asChild className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-8 h-12">
               <Link to="/gallery">
-                Explore Full Gallery <ArrowRight className="ml-2" size={16} />
+                Explore Full Gallery <ArrowRight className="ml-2" size={18} />
               </Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Two Column Feature */}
-      <section className="py-12 sm:py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto">
-            {/* Left - Image with Video Play */}
+      {/* Mission Section */}
+      <section className="py-16 sm:py-20 md:py-28 bg-mithila-cream">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center max-w-7xl mx-auto">
+            {/* Image Side */}
             <div className="relative order-2 lg:order-1">
-              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={festivalImg} 
                   alt="Mithila Festival" 
                   className="w-full aspect-[4/3] object-cover"
                 />
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button className="w-20 h-20 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-xl transition-all hover:scale-110 group">
+                    <Play size={28} className="text-mithila-red ml-1 group-hover:scale-110 transition-transform" fill="currentColor" />
+                  </button>
+                </div>
               </div>
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="play-button">
-                  <Play size={24} className="text-primary ml-1" fill="currentColor" />
-                </button>
-              </div>
-              {/* Floating Card */}
-              <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-background rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-border max-w-[200px] sm:max-w-xs hidden sm:block">
-                <p className="text-xs sm:text-sm font-medium text-foreground leading-relaxed">
+              
+              {/* Floating Quote Card */}
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl max-w-xs hidden md:block border-l-4 border-mithila-red">
+                <p className="text-sm font-medium text-foreground leading-relaxed italic">
                   "Finding balance, harmony, and joy through the preservation of our traditions."
                 </p>
-                <p className="text-xs text-muted-foreground mt-2 sm:mt-3">— Mithila Wisdom</p>
+                <p className="text-xs text-muted-foreground mt-3 font-medium">— Mithila Wisdom</p>
               </div>
+              
+              {/* Decorative Border */}
+              <div className="absolute -inset-4 border-2 border-mithila-green/20 rounded-[2rem] -z-10 hidden lg:block" />
             </div>
             
-            {/* Right - Content */}
+            {/* Content Side */}
             <div className="lg:pl-8 order-1 lg:order-2">
-              <p className="section-subtitle mb-3">Our Mission</p>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-                Essence of <span className="highlight-text">Mithila Heritage</span>
+              <span className="inline-block px-4 py-1.5 bg-mithila-green/10 text-mithila-green text-sm font-medium rounded-full mb-4">Our Mission</span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
+                Essence of <span className="text-mithila-red">Mithila Heritage</span>
               </h2>
-              <p className="text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+              <p className="text-muted-foreground mb-5 leading-relaxed text-base sm:text-lg">
                 Welcome to Mithila Center USA, a sanctuary for seekers of artistic excellence and cultural 
-                preservation. Here, you'll find a space to reconnect with ancient traditions, embrace 
-                creativity, and discover the profound wisdom that Mithila art offers.
+                preservation. Here, you'll find a space to reconnect with ancient traditions.
               </p>
-              <p className="text-muted-foreground mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                We offer a comprehensive collection of programs designed to preserve heritage and 
+              <p className="text-muted-foreground mb-8 leading-relaxed text-base sm:text-lg">
+                We offer comprehensive programs designed to preserve heritage and 
                 awaken the artistic potential in everyone.
               </p>
-              <Button asChild className="hero-btn-primary rounded-full px-8">
+              
+              {/* Feature List */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {[
+                  { icon: Star, text: "Master Artists" },
+                  { icon: Users, text: "Youth Programs" },
+                  { icon: Globe, text: "Global Reach" },
+                  { icon: Award, text: "Recognition" },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-mithila-yellow/20 flex items-center justify-center">
+                      <item.icon size={18} className="text-mithila-red" />
+                    </div>
+                    <span className="text-sm font-medium text-foreground">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <Button asChild className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-8 h-12">
                 <Link to="/about">
-                  Learn More <ChevronRight className="ml-1" size={16} />
+                  Learn More <ChevronRight className="ml-1" size={18} />
                 </Link>
               </Button>
             </div>
@@ -208,30 +237,35 @@ const Index = () => {
       </section>
 
       {/* Team / Artists Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-card">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10 sm:mb-16">
-            <p className="section-subtitle mb-3">Our Community</p>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold">
-              Team at the <span className="highlight-text">Mithila Center</span>
+      <section className="py-16 sm:py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <span className="inline-block px-4 py-1.5 bg-mithila-yellow/10 text-mithila-yellow text-sm font-medium rounded-full mb-4">Our Community</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+              Team at the <span className="text-mithila-green">Mithila Center</span>
             </h2>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-              Meet the compassionate souls who guide our mission of preserving traditions, inspiring creativity, and empowerment.
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Meet the compassionate souls who guide our mission of preserving traditions and inspiring creativity.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               { img: peacockGarden, name: "Master Artists", role: "Traditional Madhubani" },
               { img: sunSymbol, name: "Cultural Programs", role: "Community Engagement" },
               { img: fishLotus, name: "Youth Initiatives", role: "Next Generation" },
-            ].map((item, index) => (
-              <div key={item.name} className="text-center group" style={{ animationDelay: `${index * 150}ms` }}>
-                <div className="circle-frame w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-4 sm:mb-6 group-hover:scale-105 transition-transform duration-500">
-                  <img src={item.img} alt={item.name} className="w-full h-full" />
+            ].map((item) => (
+              <div key={item.name} className="text-center group">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 mx-auto mb-6">
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-mithila-yellow/30 group-hover:border-mithila-red transition-colors duration-300">
+                    <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  </div>
+                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-10 bg-mithila-red rounded-full flex items-center justify-center shadow-lg">
+                    <Star size={18} className="text-white" />
+                  </div>
                 </div>
-                <h3 className="font-display text-lg sm:text-xl font-semibold mb-1">{item.name}</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">{item.role}</p>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-1">{item.name}</h3>
+                <p className="text-sm text-muted-foreground">{item.role}</p>
               </div>
             ))}
           </div>
@@ -239,74 +273,73 @@ const Index = () => {
       </section>
 
       {/* UN Partnership Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-secondary text-secondary-foreground">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto">
+      <section className="py-16 sm:py-20 md:py-28 bg-secondary text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center max-w-7xl mx-auto">
             <div>
-              <p className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider mb-3">United Nations Partnership</p>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-secondary-foreground">
-                Art for <span className="text-primary">Sustainable Development Goals</span>
+              <span className="inline-block px-4 py-1.5 bg-mithila-yellow/20 text-mithila-yellow text-sm font-medium rounded-full mb-4">United Nations Partnership</span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                Art for <span className="text-mithila-yellow">Sustainable Development Goals</span>
               </h2>
-              <p className="text-secondary-foreground/80 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+              <p className="text-white/80 mb-6 leading-relaxed text-base sm:text-lg">
                 Since 2019, Mithila Center USA has presented exhibitions at the UN Headquarters in New York, 
                 partnering with the Permanent Mission of Nepal to showcase how traditional art can drive 
                 global awareness for sustainable development.
               </p>
-              <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
+              <div className="flex flex-wrap gap-3 mb-8">
                 {["SDG 4 Education", "SDG 5 Gender Equality", "SDG 13 Climate Action"].map((tag) => (
-                  <span key={tag} className="px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 text-primary text-xs sm:text-sm rounded-full font-medium">
+                  <span key={tag} className="px-4 py-2 bg-white/10 text-white text-sm rounded-full font-medium border border-white/20">
                     {tag}
                   </span>
                 ))}
               </div>
-              <Button asChild className="hero-btn-primary rounded-full px-6 sm:px-8">
+              <Button asChild className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-8 h-12">
                 <Link to="/art-for-sdgs">
-                  Explore Art for SDGs <ArrowRight className="ml-2" size={16} />
+                  Explore Art for SDGs <ArrowRight className="ml-2" size={18} />
                 </Link>
               </Button>
             </div>
             
             <div className="relative">
-              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={unExhibition} 
                   alt="UN Exhibition" 
                   className="w-full aspect-[4/3] object-cover"
                 />
               </div>
-              {/* Decorative frame */}
-              <div className="absolute -inset-3 border-2 border-primary/20 rounded-3xl -z-10 hidden md:block" />
+              <div className="absolute -inset-4 border-2 border-mithila-yellow/20 rounded-[2rem] -z-10 hidden lg:block" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Programs Grid */}
-      <section className="py-12 sm:py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10 sm:mb-16">
-            <p className="section-subtitle mb-3">Get Involved</p>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold">
-              Our <span className="highlight-text">Programs</span>
+      <section className="py-16 sm:py-20 md:py-28 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <span className="inline-block px-4 py-1.5 bg-mithila-green/10 text-mithila-green text-sm font-medium rounded-full mb-4">Get Involved</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+              Our <span className="text-mithila-red">Programs</span>
             </h2>
           </div>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {[
-              { to: "/festival", icon: Calendar, title: "Mithila Festival", desc: "Annual celebration of art & community" },
-              { to: "/youth-community", icon: Users, title: "Youth Programs", desc: "Workshops for next generation" },
-              { to: "/world-tour", icon: Globe, title: "World Tour 2025", desc: "Mithila heritage goes global" },
-              { to: "/recognition", icon: Award, title: "Recognition", desc: "NYC Mayor's Proclamation" },
-            ].map((item, index) => (
-              <Link key={item.to} to={item.to} className="group" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="elegant-card rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <item.icon size={24} className="text-primary group-hover:text-primary-foreground transition-colors sm:w-7 sm:h-7" />
+              { to: "/festival", icon: Calendar, title: "Mithila Festival", desc: "Annual celebration of art & community", color: "bg-mithila-red" },
+              { to: "/youth-community", icon: Users, title: "Youth Programs", desc: "Workshops for next generation", color: "bg-mithila-green" },
+              { to: "/world-tour", icon: Globe, title: "World Tour 2025", desc: "Mithila heritage goes global", color: "bg-mithila-yellow" },
+              { to: "/recognition", icon: Award, title: "Recognition", desc: "NYC Mayor's Proclamation", color: "bg-secondary" },
+            ].map((item) => (
+              <Link key={item.to} to={item.to} className="group">
+                <div className="bg-card rounded-2xl p-5 sm:p-6 h-full border border-border hover:border-mithila-red/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${item.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <item.icon size={26} className="text-white" />
                   </div>
-                  <h3 className="font-display text-sm sm:text-lg font-semibold mb-1 sm:mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-2 group-hover:text-mithila-red transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
+                  <p className="text-sm text-muted-foreground hidden sm:block">
                     {item.desc}
                   </p>
                 </div>
@@ -317,33 +350,33 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-card relative overflow-hidden">
-        {/* Decorative background */}
+      <section className="py-16 sm:py-20 md:py-28 bg-mithila-cream relative overflow-hidden">
+        {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-40 h-40 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-60 h-60 bg-mithila-gold rounded-full blur-3xl" />
+          <div className="absolute top-0 left-0 w-72 h-72 bg-mithila-red rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-mithila-yellow rounded-full blur-3xl" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 rounded-full bg-primary/10 flex items-center justify-center animate-float">
-              <Heart size={28} className="text-primary sm:w-9 sm:h-9" />
+            <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-mithila-red/10 flex items-center justify-center">
+              <Heart size={36} className="text-mithila-red" />
             </div>
             
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
-              Support Our <span className="highlight-text">Mission</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Support Our <span className="text-mithila-red">Mission</span>
             </h2>
             
-            <p className="text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-lg">
+            <p className="text-muted-foreground mb-10 max-w-2xl mx-auto text-base sm:text-lg">
               Your contribution helps preserve Mithila's living heritage for future generations. 
               Join us in celebrating and protecting this ancient art tradition.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button asChild size="lg" className="hero-btn-primary rounded-full px-8 sm:px-10 text-base sm:text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full px-10 h-14 text-lg shadow-lg shadow-mithila-red/30">
                 <Link to="/contact">Donate Now</Link>
               </Button>
-              <Button asChild size="lg" className="hero-btn-secondary rounded-full px-8 sm:px-10 text-base sm:text-lg">
+              <Button asChild size="lg" className="bg-white hover:bg-mithila-cream text-foreground border-2 border-mithila-red hover:border-mithila-red rounded-full px-10 h-14 text-lg">
                 <Link to="/contact">Partner With Us</Link>
               </Button>
             </div>
@@ -352,24 +385,6 @@ const Index = () => {
       </section>
 
       <Footer />
-
-      {/* CSS Animations */}
-      <style>{`
-        @keyframes slow-zoom {
-          0%, 100% { transform: scale(1.05); }
-          50% { transform: scale(1.1); }
-        }
-        .animate-slow-zoom {
-          animation: slow-zoom 20s ease-in-out infinite;
-        }
-        @keyframes scroll-down {
-          0%, 100% { transform: translateY(0); opacity: 1; }
-          50% { transform: translateY(6px); opacity: 0.5; }
-        }
-        .animate-scroll-down {
-          animation: scroll-down 1.5s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 };
