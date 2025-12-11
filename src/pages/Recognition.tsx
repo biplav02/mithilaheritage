@@ -59,31 +59,59 @@ const Recognition = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-32 lg:pt-36">
-        <div className="absolute inset-0">
-          <img src={recognitionBanner} alt="Recognition" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 hero-overlay" />
+      <section className="relative min-h-[85vh] flex items-center bg-mithila-cream pt-32 lg:pt-36">
+        <div className="absolute inset-0 opacity-10 hidden lg:block">
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-2xl text-secondary-foreground">
-            <div className="flex items-center gap-2 mb-4">
-              <Award size={18} className="text-primary" />
-              <span className="text-sm font-medium text-secondary-foreground/70">Achievements & Honors</span>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Content Side */}
+            <div className="order-1 lg:order-1">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+                <span className="text-xs lg:text-sm font-medium text-mithila-red tracking-widest uppercase">Achievements & Honors</span>
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-secondary leading-tight">
+                Recognition & <span className="text-mithila-red">Honors</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-secondary/70 mb-8 max-w-xl leading-relaxed">
+                Celebrating the milestones and recognition that validate our mission 
+                to preserve and promote Mithila heritage globally.
+              </p>
+              <Button asChild variant="hero" size="hero" className="group">
+                <Link to="#recognitions">
+                  View Achievements
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                </Link>
+              </Button>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary-foreground">
-              Recognition & <span className="text-primary">Honors</span>
-            </h1>
-            <p className="text-lg text-secondary-foreground/80 mb-8 max-w-xl">
-              Celebrating the milestones and recognition that validate our mission 
-              to preserve and promote Mithila heritage globally.
-            </p>
+            
+            {/* Image Side */}
+            <div className="order-2 lg:order-2 relative">
+              <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <img 
+                  src={recognitionBanner} 
+                  alt="Recognition & Honors" 
+                  className="w-full aspect-square lg:aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-4 lg:-bottom-8 lg:-left-8 w-24 lg:w-40 h-24 lg:h-40 rounded-xl lg:rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden sm:block">
+                <img 
+                  src={nycHall} 
+                  alt="NYC Hall Recognition" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -top-4 -right-4 w-16 lg:w-24 h-16 lg:h-24 border-2 border-mithila-red/30 rounded-full hidden sm:block" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Key Recognitions */}
-      <section className="py-20 bg-card">
+      <section id="recognitions" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <p className="section-subtitle mb-3">Achievements</p>

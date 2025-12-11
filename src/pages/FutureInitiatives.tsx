@@ -46,17 +46,22 @@ const FutureInitiatives = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative pt-32 lg:pt-36 pb-16 md:pb-24 bg-gradient-to-br from-mithila-blue/20 via-accent/10 to-primary/10">
-        <div className="container mx-auto px-4">
+      <section className="relative min-h-[60vh] flex items-center bg-mithila-cream pt-32 lg:pt-36">
+        <div className="absolute inset-0 opacity-10 hidden lg:block">
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-blue/30" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-mithila-blue/20 rounded-full">
-              <Sparkles size={18} className="text-mithila-blue" />
-              <span className="text-sm font-medium text-mithila-blue">Looking Ahead</span>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-blue" />
+              <span className="text-xs lg:text-sm font-medium text-mithila-blue tracking-widest uppercase">Looking Ahead</span>
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-blue" />
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-secondary leading-tight">
               Future <span className="text-mithila-blue">Initiatives</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-secondary/70 max-w-2xl mx-auto leading-relaxed">
               Building lasting institutions and programs that will preserve Mithila heritage 
               for generations to come.
             </p>

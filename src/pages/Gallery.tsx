@@ -69,17 +69,22 @@ const Gallery = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-36 pb-20 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 overflow-hidden">
-        <div className="absolute inset-0 mithila-pattern opacity-50" />
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-4 animate-fade-in">
-              Explore Our Collection
-            </span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
-              Mithila Art <span className="text-gradient">Gallery</span>
+      <section className="relative min-h-[60vh] flex items-center bg-mithila-cream pt-32 lg:pt-36 overflow-hidden">
+        <div className="absolute inset-0 opacity-10 hidden lg:block">
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+              <span className="text-xs lg:text-sm font-medium text-mithila-red tracking-widest uppercase">Explore Our Collection</span>
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+            </div>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-secondary leading-tight">
+              Mithila Art <span className="text-mithila-red">Gallery</span>
             </h1>
-            <p className="text-lg text-muted-foreground animate-fade-in opacity-0 stagger-2">
+            <p className="text-lg sm:text-xl text-secondary/70 max-w-2xl mx-auto leading-relaxed">
               Discover the timeless beauty of 5,000 years of artistic tradition through our curated collection
             </p>
           </div>
