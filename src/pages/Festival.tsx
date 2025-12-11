@@ -47,7 +47,7 @@ const Festival = () => {
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 rounded-full px-8">
                 <Link to="/contact">Register Interest <ArrowRight className="ml-2" size={16} /></Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 rounded-full px-8">
+              <Button asChild size="lg" className="bg-mithila-cream/90 hover:bg-mithila-cream text-mithila-earth border-2 border-mithila-haldi/50 hover:border-mithila-haldi rounded-full px-8 font-medium">
                 <Link to="/gallery">View Past Festivals</Link>
               </Button>
             </div>
