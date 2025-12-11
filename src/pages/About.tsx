@@ -12,7 +12,7 @@ const About = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative py-16 md:py-24 mithila-pattern">
+      <section className="relative pt-32 lg:pt-36 pb-16 md:pb-24 mithila-pattern">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
         <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
