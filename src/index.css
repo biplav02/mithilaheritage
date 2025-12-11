@@ -433,32 +433,315 @@
   .delay-400 { animation-delay: 0.4s; }
   .delay-500 { animation-delay: 0.5s; }
 
-  /* Hero Button Styles */
+  /* Hero Button Styles - Enhanced with Gamification */
   .hero-btn-primary {
-    background: hsl(var(--primary));
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.85));
     color: hsl(var(--primary-foreground));
     border: none;
-    transition: all 0.3s ease;
+    border-radius: 9999px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px hsl(var(--primary) / 0.3);
+  }
+
+  .hero-btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, hsl(var(--mithila-yellow) / 0.3) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .hero-btn-primary:hover::before {
+    transform: translateX(100%);
   }
 
   .hero-btn-primary:hover {
-    background: hsl(var(--primary) / 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px hsl(var(--primary) / 0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px hsl(var(--primary) / 0.45);
+  }
+
+  .hero-btn-primary:active {
+    transform: translateY(-1px) scale(0.98);
   }
 
   .hero-btn-secondary {
-    background: hsl(var(--background) / 0.9);
-    color: hsl(var(--foreground));
-    border: 2px solid hsl(var(--primary));
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border: 2px solid hsl(var(--mithila-yellow) / 0.5);
+    border-radius: 9999px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .hero-btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, hsl(var(--mithila-yellow) / 0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-btn-secondary:hover::before {
+    opacity: 1;
   }
 
   .hero-btn-secondary:hover {
-    background: hsl(var(--primary));
+    border-color: hsl(var(--mithila-yellow));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px hsl(var(--secondary) / 0.5);
+  }
+
+  /* Gamified Button - Interactive with States */
+  .btn-gamified {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--mithila-red)));
     color: hsl(var(--primary-foreground));
+    border: none;
+    border-radius: 9999px;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+      0 4px 15px hsl(var(--primary) / 0.4),
+      inset 0 -3px 0 hsl(var(--mithila-maroon));
+  }
+
+  .btn-gamified::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, hsl(var(--mithila-yellow) / 0.2), transparent);
+    border-radius: 9999px 9999px 0 0;
+  }
+
+  .btn-gamified:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 
+      0 12px 35px hsl(var(--primary) / 0.5),
+      inset 0 -3px 0 hsl(var(--mithila-maroon));
+  }
+
+  .btn-gamified:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+      0 2px 10px hsl(var(--primary) / 0.3),
+      inset 0 3px 5px hsl(var(--mithila-maroon));
+  }
+
+  /* Outline Button - Clear Visibility */
+  .btn-outline-visible {
+    background: transparent;
+    color: hsl(var(--mithila-yellow));
+    border: 2px solid hsl(var(--mithila-yellow));
+    border-radius: 9999px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-visible:hover {
+    background: hsl(var(--mithila-yellow));
+    color: hsl(var(--secondary));
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px hsl(var(--mithila-yellow) / 0.3);
+  }
+
+  /* Interactive Card - Gamified */
+  .card-interactive {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+
+  .card-interactive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--mithila-yellow)), hsl(var(--mithila-green)));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .card-interactive:hover::before {
+    transform: scaleX(1);
+  }
+
+  .card-interactive:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 40px hsl(var(--foreground) / 0.1),
+      0 0 0 1px hsl(var(--primary) / 0.2);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Progress Bar - Gamified */
+  .progress-gamified {
+    height: 8px;
+    background: hsl(var(--muted));
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-gamified::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, 
+      hsl(var(--primary)), 
+      hsl(var(--mithila-yellow)), 
+      hsl(var(--mithila-green))
+    );
+    background-size: 200% 100%;
+    animation: progress-shine 2s linear infinite;
+    border-radius: 9999px;
+  }
+
+  @keyframes progress-shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Badge - Interactive */
+  .badge-interactive {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .badge-interactive:hover {
+    background: hsl(var(--primary) / 0.2);
+    border-color: hsl(var(--primary) / 0.4);
+    transform: scale(1.05);
+  }
+
+  /* Stat Counter - Animated */
+  .stat-counter {
+    position: relative;
+    padding: 1.5rem;
+    background: hsl(var(--card));
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border));
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .stat-counter::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--mithila-yellow)));
+  }
+
+  .stat-counter:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px hsl(var(--foreground) / 0.1);
+  }
+
+  /* Scroll Reveal Animation */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger Children Animation */
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .stagger-children.revealed > *:nth-child(1) { transition-delay: 0.1s; }
+  .stagger-children.revealed > *:nth-child(2) { transition-delay: 0.2s; }
+  .stagger-children.revealed > *:nth-child(3) { transition-delay: 0.3s; }
+  .stagger-children.revealed > *:nth-child(4) { transition-delay: 0.4s; }
+  .stagger-children.revealed > *:nth-child(5) { transition-delay: 0.5s; }
+  .stagger-children.revealed > *:nth-child(6) { transition-delay: 0.6s; }
+
+  .stagger-children.revealed > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Magnetic Button Effect */
+  .btn-magnetic {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  /* Glow Effect on Hover */
+  .glow-on-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glow-on-hover:hover {
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.4),
+      0 0 40px hsl(var(--primary) / 0.2),
+      0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  /* Ripple Effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: hsl(var(--mithila-yellow) / 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .ripple:active::after {
+    width: 300px;
+    height: 300px;
   }
 
   /* Decorative Elements */
@@ -531,12 +814,27 @@
     50% { transform: translateY(-10px); }
   }
 
+  /* Scroll Down Indicator */
+  .animate-scroll-down {
+    animation: scroll-down 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scroll-down {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(6px); opacity: 0.5; }
+  }
+
   /* Stagger Animation */
   .stagger-1 { animation-delay: 0.1s; }
   .stagger-2 { animation-delay: 0.2s; }
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
+
+  /* Parallax Effect */
+  .parallax-slow {
+    will-change: transform;
+  }
 }
 
 @layer utilities {
