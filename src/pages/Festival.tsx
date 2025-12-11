@@ -277,7 +277,7 @@ const Festival = () => {
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </Link>
               </Button>
-              <Button asChild size="lg" className="btn-outline-visible">
+              <Button asChild size="lg" className="bg-mithila-yellow hover:bg-mithila-yellow/90 text-secondary font-semibold rounded-full">
                 <Link to="/gallery">View Gallery</Link>
               </Button>
             </div>

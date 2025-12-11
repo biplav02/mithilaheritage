@@ -45,11 +45,21 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section - Mobile First with Text Overlay */}
-      <section ref={heroRef.ref} className="relative min-h-screen flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
+      <section ref={heroRef.ref} className="relative min-h-screen flex items-end lg:items-center overflow-hidden bg-mithila-cream pt-24 pb-8 lg:pt-36 lg:pb-0">
         {/* Subtle Pattern Background */}
         <div className="absolute inset-0 opacity-10 hidden lg:block">
           <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
           <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
+        </div>
+
+        {/* Mobile: Full image background with overlay */}
+        <div className="lg:hidden absolute inset-0 pt-20">
+          <img 
+            src={peacockArt} 
+            alt="Traditional Mithila Madhubani Art" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/60 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -58,29 +68,29 @@ const Index = () => {
             <div className="order-1 lg:order-1">
               {/* Subtitle Line */}
               <div className={`flex items-center gap-4 mb-4 lg:mb-6 transition-all duration-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
-                <span className="text-xs lg:text-sm font-medium text-mithila-red tracking-widest uppercase">Discover Your Soul Serenity</span>
+                <div className="w-8 lg:w-12 h-[2px] bg-mithila-red lg:bg-mithila-red" />
+                <span className="text-xs lg:text-sm font-medium text-white lg:text-mithila-red tracking-widest uppercase">Discover Your Soul Serenity</span>
               </div>
               
-              <h1 className={`font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 lg:mb-8 leading-[1.1] text-secondary tracking-tight transition-all duration-1000 delay-200 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h1 className={`font-display text-4xl sm:text-5xl md:text-5xl lg:text-7xl font-bold mb-4 lg:mb-8 leading-[1.1] text-white lg:text-secondary tracking-tight transition-all duration-1000 delay-200 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 Mithila
-                <span className="block text-mithila-red">Center USA</span>
+                <span className="block text-mithila-yellow lg:text-mithila-red">Center USA</span>
               </h1>
               
-              <p className={`text-base lg:text-xl text-secondary/70 mb-6 lg:mb-10 max-w-xl leading-relaxed transition-all duration-1000 delay-400 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <p className={`text-base lg:text-xl text-white/90 lg:text-secondary/70 mb-6 lg:mb-10 max-w-xl leading-relaxed transition-all duration-1000 delay-400 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 Preserving the timeless beauty of Madhubani art while connecting ancient traditions 
                 with modern global communities. Join us in celebrating 5000 years of heritage.
               </p>
               
               {/* CTA Buttons */}
               <div className={`flex flex-col sm:flex-row gap-3 lg:gap-4 mb-8 lg:mb-12 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <Button asChild variant="hero" size="hero" className="group text-base lg:text-lg h-12 lg:h-14">
+                <Button asChild className="bg-mithila-yellow text-secondary font-bold shadow-xl hover:bg-mithila-yellow/90 h-12 lg:h-14 px-8 rounded-full text-base lg:text-lg group">
                   <Link to="/about">
                     Read More
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                   </Link>
                 </Button>
-                <Button asChild variant="heroDark" size="hero" className="group text-base lg:text-lg h-12 lg:h-14">
+                <Button asChild className="bg-white/20 lg:bg-secondary text-white lg:text-white font-bold shadow-xl hover:bg-white/30 lg:hover:bg-secondary/90 h-12 lg:h-14 px-8 rounded-full text-base lg:text-lg backdrop-blur-sm border border-white/30 lg:border-transparent group">
                   <Link to="/gallery">
                     View Gallery
                   </Link>
@@ -88,7 +98,7 @@ const Index = () => {
               </div>
 
               {/* Stats Row */}
-              <div className={`flex flex-wrap gap-6 lg:gap-12 pt-6 lg:pt-10 border-t border-secondary/10 transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className={`flex flex-wrap gap-6 lg:gap-12 pt-6 lg:pt-10 border-t border-white/20 lg:border-secondary/10 transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 {[
                   { num: "5000+", label: "Years of Heritage", icon: Trophy },
                   { num: "6+", label: "UN Exhibitions", icon: Globe },
@@ -100,22 +110,22 @@ const Index = () => {
                     style={{ transitionDelay: `${800 + index * 100}ms` }}
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <stat.icon size={16} className="text-mithila-red/60 group-hover:text-mithila-red transition-colors" />
-                      <p className="font-display text-2xl lg:text-4xl font-bold text-secondary">{stat.num}</p>
+                      <stat.icon size={16} className="text-mithila-yellow lg:text-mithila-red/60 group-hover:text-mithila-yellow lg:group-hover:text-mithila-red transition-colors" />
+                      <p className="font-display text-2xl lg:text-4xl font-bold text-white lg:text-secondary">{stat.num}</p>
                     </div>
-                    <p className="text-xs lg:text-sm text-secondary/50 group-hover:text-secondary/70 transition-colors">{stat.label}</p>
+                    <p className="text-xs lg:text-sm text-white/70 lg:text-secondary/50 group-hover:text-white/90 lg:group-hover:text-secondary/70 transition-colors">{stat.label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Image Side - Below content on mobile */}
-            <div className={`order-2 lg:order-2 relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            {/* Image Side - Hidden on mobile, shown on desktop */}
+            <div className={`hidden lg:block order-2 lg:order-2 relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative">
                 {/* Main Image with artistic frame */}
                 <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <img 
-                    src={heroDark} 
+                    src={peacockArt} 
                     alt="Traditional Mithila Madhubani Art" 
                     className="w-full aspect-square lg:aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
                   />
@@ -124,8 +134,8 @@ const Index = () => {
                 {/* Floating secondary image */}
                 <div className="absolute -bottom-4 -left-4 lg:-bottom-8 lg:-left-8 w-24 lg:w-40 h-24 lg:h-40 rounded-xl lg:rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden sm:block">
                   <img 
-                    src={peacockArt} 
-                    alt="Mithila Peacock Art" 
+                    src={sunSymbol} 
+                    alt="Mithila Sun Art" 
                     className="w-full h-full object-cover"
                   />
                 </div>

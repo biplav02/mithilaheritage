@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -19,11 +20,16 @@ const moreLinks = [
   { path: "/future-initiatives", label: "Future Initiatives" },
 ];
 
+const allLinks = [...navLinks, ...moreLinks];
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +38,18 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Filter links based on search
+  const filteredLinks = allLinks.filter(link =>
+    link.label.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSearchSelect = (path: string) => {
+    navigate(path);
+    setSearchQuery("");
+    setShowSearch(false);
+    setIsOpen(false);
+  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -123,11 +141,61 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div className={`lg:hidden overflow-hidden transition-all duration-500 ${
-          isOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="py-4">
+            {/* Mobile Search Bar */}
+            <div className="px-4 pb-4">
+              <div className="relative">
+                <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Search pages..."
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setShowSearch(e.target.value.length > 0);
+                  }}
+                  className="pl-10 pr-4 h-12 rounded-full bg-mithila-cream border-none focus:ring-2 focus:ring-mithila-red"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => {
+                      setSearchQuery("");
+                      setShowSearch(false);
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  >
+                    <X size={16} />
+                  </button>
+                )}
+              </div>
+              
+              {/* Search Results */}
+              {showSearch && filteredLinks.length > 0 && (
+                <div className="mt-2 bg-white rounded-xl shadow-lg border border-border/50 overflow-hidden">
+                  {filteredLinks.map((link) => (
+                    <button
+                      key={link.path}
+                      onClick={() => handleSearchSelect(link.path)}
+                      className="w-full px-4 py-3 text-left text-sm font-medium hover:bg-mithila-cream transition-colors flex items-center gap-2"
+                    >
+                      <Search size={14} className="text-muted-foreground" />
+                      {link.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+              
+              {showSearch && filteredLinks.length === 0 && (
+                <div className="mt-2 px-4 py-3 text-sm text-muted-foreground text-center">
+                  No pages found
+                </div>
+              )}
+            </div>
+            
             <div className="flex flex-col gap-1">
-              {[...navLinks, ...moreLinks].map((link) => (
+              {allLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}

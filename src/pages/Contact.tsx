@@ -32,7 +32,7 @@ const Contact = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative bg-mithila-cream pt-40 lg:pt-44 pb-16">
+      <section className="relative bg-mithila-cream pt-44 lg:pt-48 pb-16">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-40 right-20 w-64 h-64 border border-mithila-red/30 rounded-full" />
           <div className="absolute bottom-20 left-20 w-48 h-48 border border-mithila-yellow/40 rounded-full" />

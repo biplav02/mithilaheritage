@@ -345,7 +345,7 @@ const Gallery = () => {
               Support traditional artists and bring the beauty of Mithila art to your home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-secondary hover:bg-white/90 font-bold text-lg">
+              <Button asChild size="lg" className="bg-mithila-yellow text-secondary hover:bg-mithila-yellow/90 font-bold text-lg">
                 <Link to="/contact">Inquire About Artwork</Link>
               </Button>
               <Button asChild size="lg" className="bg-secondary text-white hover:bg-secondary/90 font-bold text-lg">

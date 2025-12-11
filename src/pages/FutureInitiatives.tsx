@@ -195,10 +195,10 @@ const FutureInitiatives = () => {
               Join us in building lasting institutions for Mithila heritage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-mithila-blue hover:bg-mithila-blue/90">
+              <Button asChild size="lg" className="bg-mithila-blue hover:bg-mithila-blue/90 text-white">
                 <Link to="/contact">Become a Founding Partner</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-background/50 text-background hover:bg-background/10">
+              <Button asChild size="lg" className="bg-mithila-yellow hover:bg-mithila-yellow/90 text-secondary font-semibold">
                 <Link to="/contact">Donate Now</Link>
               </Button>
             </div>
