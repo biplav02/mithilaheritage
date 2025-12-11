@@ -106,30 +106,35 @@ const Navigation = () => {
             onMouseEnter={() => setShowDropdown(true)}
             onMouseLeave={() => setShowDropdown(false)}
           >
-            <button className="flex items-center gap-1 px-5 py-2 text-sm font-medium text-secondary/70 hover:text-mithila-red transition-all">
+            <button className="flex items-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-secondary/80 hover:text-mithila-red transition-all duration-300 rounded-full hover:bg-mithila-cream/50">
               More 
               <ChevronDown 
-                size={14} 
+                size={16} 
                 className={`transition-transform duration-300 ${showDropdown ? 'rotate-180' : ''}`} 
               />
             </button>
             
             {/* Dropdown Menu */}
-            <div className={`absolute right-0 top-full pt-3 w-56 transition-all duration-300 ${
+            <div className={`absolute right-0 top-full pt-4 w-64 transition-all duration-300 ${
               showDropdown ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-3'
             }`}>
-              <div className="bg-white rounded-2xl shadow-2xl border border-border/50 overflow-hidden">
-                <div className="p-2">
-                  {moreLinks.map((link) => (
+              <div className="bg-white rounded-2xl shadow-2xl border border-border/30 overflow-hidden">
+                {/* Decorative header */}
+                <div className="h-1.5 bg-gradient-to-r from-mithila-red via-mithila-yellow to-mithila-green" />
+                <div className="p-3">
+                  {moreLinks.map((link, index) => (
                     <Link
                       key={link.path}
                       to={link.path}
-                      className={`block px-4 py-3 text-sm font-medium rounded-xl transition-all ${
+                      className={`flex items-center gap-3 px-4 py-3.5 text-base font-medium rounded-xl transition-all duration-200 ${
                         location.pathname === link.path 
-                          ? 'bg-mithila-red/10 text-mithila-red' 
-                          : 'text-secondary hover:bg-mithila-cream hover:text-mithila-red'
+                          ? 'bg-mithila-red text-white shadow-md' 
+                          : 'text-secondary hover:bg-mithila-cream hover:text-mithila-red hover:translate-x-1'
                       }`}
                     >
+                      <span className={`w-2 h-2 rounded-full ${
+                        index === 0 ? 'bg-mithila-red' : index === 1 ? 'bg-mithila-yellow' : 'bg-mithila-green'
+                      } ${location.pathname === link.path ? 'bg-white' : ''}`} />
                       {link.label}
                     </Link>
                   ))}
@@ -143,11 +148,28 @@ const Navigation = () => {
         <div className={`lg:hidden overflow-hidden transition-all duration-500 ${
           isOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="py-4">
+          {/* Decorative Background Pattern */}
+          <div className="relative py-6">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-mithila-yellow/20 rounded-full blur-3xl" />
+              <div className="absolute top-1/2 -left-10 w-32 h-32 bg-mithila-red/10 rounded-full blur-2xl" />
+              <div className="absolute bottom-10 right-10 w-24 h-24 bg-mithila-green/15 rounded-full blur-2xl" />
+              {/* Mithila-inspired decorative pattern */}
+              <svg className="absolute top-4 right-4 w-16 h-16 text-mithila-red/10" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" />
+                <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="2" />
+                <circle cx="50" cy="50" r="15" fill="currentColor" />
+              </svg>
+              <svg className="absolute bottom-20 left-4 w-12 h-12 text-mithila-yellow/20" viewBox="0 0 100 100">
+                <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="currentColor" />
+              </svg>
+            </div>
+            
             {/* Mobile Search Bar */}
-            <div className="px-4 pb-4">
+            <div className="relative px-4 pb-5">
               <div className="relative">
-                <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-mithila-red/60" />
                 <Input
                   type="text"
                   placeholder="Search pages..."
@@ -156,7 +178,7 @@ const Navigation = () => {
                     setSearchQuery(e.target.value);
                     setShowSearch(e.target.value.length > 0);
                   }}
-                  className="pl-10 pr-4 h-12 rounded-full bg-mithila-cream border-none focus:ring-2 focus:ring-mithila-red"
+                  className="pl-11 pr-4 h-14 rounded-2xl bg-gradient-to-r from-mithila-cream to-mithila-cream/80 border-2 border-mithila-red/10 focus:border-mithila-red/30 focus:ring-2 focus:ring-mithila-red/20 shadow-inner text-base"
                 />
                 {searchQuery && (
                   <button
@@ -164,23 +186,25 @@ const Navigation = () => {
                       setSearchQuery("");
                       setShowSearch(false);
                     }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full bg-mithila-red/10 text-mithila-red hover:bg-mithila-red/20"
                   >
-                    <X size={16} />
+                    <X size={14} />
                   </button>
                 )}
               </div>
               
               {/* Search Results */}
               {showSearch && filteredLinks.length > 0 && (
-                <div className="mt-2 bg-white rounded-xl shadow-lg border border-border/50 overflow-hidden">
+                <div className="mt-3 bg-white rounded-2xl shadow-xl border border-mithila-red/10 overflow-hidden">
                   {filteredLinks.map((link) => (
                     <button
                       key={link.path}
                       onClick={() => handleSearchSelect(link.path)}
-                      className="w-full px-4 py-3 text-left text-sm font-medium hover:bg-mithila-cream transition-colors flex items-center gap-2"
+                      className="w-full px-5 py-4 text-left text-base font-medium hover:bg-mithila-cream transition-colors flex items-center gap-3 border-b border-border/30 last:border-0"
                     >
-                      <Search size={14} className="text-muted-foreground" />
+                      <div className="w-8 h-8 rounded-full bg-mithila-red/10 flex items-center justify-center">
+                        <Search size={14} className="text-mithila-red" />
+                      </div>
                       {link.label}
                     </button>
                   ))}
@@ -188,31 +212,40 @@ const Navigation = () => {
               )}
               
               {showSearch && filteredLinks.length === 0 && (
-                <div className="mt-2 px-4 py-3 text-sm text-muted-foreground text-center">
+                <div className="mt-3 px-5 py-4 text-base text-muted-foreground text-center bg-mithila-cream/50 rounded-2xl">
                   No pages found
                 </div>
               )}
             </div>
             
-            <div className="flex flex-col gap-1">
-              {allLinks.map((link) => (
+            {/* Navigation Links */}
+            <div className="relative flex flex-col gap-1.5 px-3">
+              {allLinks.map((link, index) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 text-base font-medium rounded-xl transition-all ${
+                  className={`flex items-center gap-3 px-4 py-4 text-base font-medium rounded-2xl transition-all duration-300 ${
                     location.pathname === link.path
-                      ? "bg-mithila-red/10 text-mithila-red"
-                      : "text-secondary/70 hover:text-mithila-red hover:bg-mithila-cream"
+                      ? "bg-gradient-to-r from-mithila-red to-mithila-red/90 text-white shadow-lg shadow-mithila-red/20"
+                      : "text-secondary hover:text-mithila-red hover:bg-mithila-cream/80 hover:translate-x-1"
                   }`}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
+                  <span className={`w-2.5 h-2.5 rounded-full ${
+                    location.pathname === link.path 
+                      ? 'bg-white' 
+                      : index % 3 === 0 ? 'bg-mithila-red/50' : index % 3 === 1 ? 'bg-mithila-yellow/70' : 'bg-mithila-green/50'
+                  }`} />
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 px-4">
-                <Button asChild className="w-full bg-mithila-red hover:bg-mithila-red/90 text-white rounded-full shadow-lg">
+              
+              {/* Donate Button */}
+              <div className="pt-4 px-1">
+                <Button asChild className="w-full h-14 bg-gradient-to-r from-mithila-red to-mithila-red/90 hover:from-mithila-red/90 hover:to-mithila-red text-white text-base font-semibold rounded-2xl shadow-xl shadow-mithila-red/30 transition-all hover:scale-[1.02]">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Donate Now
+                    ✦ Donate Now ✦
                   </Link>
                 </Button>
               </div>
