@@ -50,17 +50,22 @@ const YouthCommunity = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative pt-32 lg:pt-36 pb-16 md:pb-24 bg-gradient-to-br from-accent/20 via-mithila-yellow/10 to-primary/10">
-        <div className="container mx-auto px-4">
+      <section className="relative min-h-[60vh] flex items-center bg-mithila-cream pt-32 lg:pt-36">
+        <div className="absolute inset-0 opacity-10 hidden lg:block">
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/20 rounded-full">
-              <Users size={18} className="text-accent" />
-              <span className="text-sm font-medium text-accent">Building the Next Generation</span>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-green" />
+              <span className="text-xs lg:text-sm font-medium text-mithila-green tracking-widest uppercase">Building the Next Generation</span>
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-green" />
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              Youth & Community <span className="text-accent">Programs</span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-secondary leading-tight">
+              Youth & Community <span className="text-mithila-green">Programs</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-secondary/70 max-w-2xl mx-auto leading-relaxed">
               Empowering the next generation to carry forward Mithila heritage through 
               art education, workshops, competitions, and community engagement.
             </p>

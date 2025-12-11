@@ -12,14 +12,22 @@ const About = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative pt-32 lg:pt-36 pb-16 md:pb-24 mithila-pattern">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              About <span className="text-primary">Mithila Center USA</span>
+      <section className="relative min-h-[85vh] flex items-center bg-mithila-cream pt-32 lg:pt-36">
+        <div className="absolute inset-0 opacity-10 hidden lg:block">
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+              <span className="text-xs lg:text-sm font-medium text-mithila-red tracking-widest uppercase">About Us</span>
+              <div className="w-8 lg:w-12 h-[2px] bg-mithila-red" />
+            </div>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-secondary leading-tight">
+              About <span className="text-mithila-red">Mithila Center USA</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg sm:text-xl text-secondary/70 max-w-2xl mx-auto leading-relaxed">
               A nonprofit cultural organization dedicated to preserving and promoting the living heritage 
               of the Mithila region worldwide.
             </p>
