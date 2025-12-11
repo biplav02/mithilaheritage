@@ -4,100 +4,100 @@
 
 @layer base {
   :root {
-    /* Mithila Color Palette */
-    --background: 40 30% 97%;
-    --foreground: 0 0% 5%;
+    /* Warm Earthy Mithila Palette */
+    --background: 35 30% 96%;
+    --foreground: 20 30% 15%;
 
-    --card: 40 25% 95%;
-    --card-foreground: 0 0% 5%;
+    --card: 35 35% 93%;
+    --card-foreground: 20 30% 15%;
 
-    --popover: 40 30% 97%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 35 30% 96%;
+    --popover-foreground: 20 30% 15%;
 
-    /* Mithila Red */
-    --primary: 350 76% 51%;
-    --primary-foreground: 40 30% 97%;
+    /* Saffron Orange - Primary */
+    --primary: 25 85% 50%;
+    --primary-foreground: 35 30% 98%;
 
-    /* Terracotta Orange */
-    --secondary: 20 87% 54%;
-    --secondary-foreground: 40 30% 97%;
+    /* Rich Brown - Secondary */
+    --secondary: 20 45% 25%;
+    --secondary-foreground: 35 30% 96%;
 
-    /* Mango Yellow */
-    --muted: 45 87% 63%;
-    --muted-foreground: 0 0% 20%;
+    /* Warm Muted */
+    --muted: 30 20% 88%;
+    --muted-foreground: 20 20% 40%;
 
-    /* Leaf Green */
-    --accent: 122 53% 33%;
-    --accent-foreground: 40 30% 97%;
+    /* Deep Brown Accent */
+    --accent: 15 60% 35%;
+    --accent-foreground: 35 30% 96%;
 
-    /* Madhubani Blue */
-    --madhubani-blue: 224 100% 58%;
-    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 20% 85%;
-    --input: 30 20% 85%;
-    --ring: 350 76% 51%;
+    --border: 30 25% 82%;
+    --input: 30 25% 82%;
+    --ring: 25 85% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom Mithila Colors */
-    --mithila-red: 350 76% 51%;
-    --mithila-orange: 20 87% 54%;
-    --mithila-yellow: 45 87% 63%;
-    --mithila-green: 122 53% 33%;
-    --mithila-blue: 224 100% 58%;
-    --mithila-ink: 0 0% 5%;
-    --mithila-cream: 40 30% 97%;
+    /* Custom Mithila Colors - Warm Earthy */
+    --mithila-red: 350 70% 45%;
+    --mithila-orange: 25 85% 50%;
+    --mithila-yellow: 40 80% 55%;
+    --mithila-green: 85 45% 35%;
+    --mithila-blue: 200 60% 40%;
+    --mithila-ink: 20 30% 12%;
+    --mithila-cream: 35 40% 94%;
+    --mithila-brown: 20 45% 25%;
+    --mithila-terracotta: 15 60% 40%;
+    --mithila-gold: 38 70% 50%;
 
-    --sidebar-background: 40 25% 95%;
-    --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 350 76% 51%;
-    --sidebar-primary-foreground: 40 30% 97%;
-    --sidebar-accent: 45 87% 63%;
-    --sidebar-accent-foreground: 0 0% 5%;
-    --sidebar-border: 30 20% 85%;
-    --sidebar-ring: 350 76% 51%;
+    --sidebar-background: 20 40% 18%;
+    --sidebar-foreground: 35 30% 92%;
+    --sidebar-primary: 25 85% 50%;
+    --sidebar-primary-foreground: 35 30% 98%;
+    --sidebar-accent: 38 70% 50%;
+    --sidebar-accent-foreground: 20 30% 15%;
+    --sidebar-border: 20 30% 25%;
+    --sidebar-ring: 25 85% 50%;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 40 30% 95%;
+    --background: 20 30% 8%;
+    --foreground: 35 30% 92%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 40 30% 95%;
+    --card: 20 25% 12%;
+    --card-foreground: 35 30% 92%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 40 30% 95%;
+    --popover: 20 30% 8%;
+    --popover-foreground: 35 30% 92%;
 
-    --primary: 350 76% 55%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 25 85% 55%;
+    --primary-foreground: 20 30% 8%;
 
-    --secondary: 20 87% 50%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 30 35% 70%;
+    --secondary-foreground: 20 30% 8%;
 
-    --muted: 45 50% 25%;
-    --muted-foreground: 40 30% 80%;
+    --muted: 20 20% 20%;
+    --muted-foreground: 35 20% 70%;
 
-    --accent: 122 53% 40%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 15 50% 50%;
+    --accent-foreground: 20 30% 8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 350 76% 55%;
+    --border: 20 20% 20%;
+    --input: 20 20% 20%;
+    --ring: 25 85% 55%;
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 40 30% 90%;
-    --sidebar-primary: 350 76% 55%;
-    --sidebar-primary-foreground: 0 0% 5%;
-    --sidebar-accent: 45 50% 30%;
-    --sidebar-accent-foreground: 40 30% 95%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 350 76% 55%;
+    --sidebar-background: 20 30% 10%;
+    --sidebar-foreground: 35 30% 88%;
+    --sidebar-primary: 25 85% 55%;
+    --sidebar-primary-foreground: 20 30% 8%;
+    --sidebar-accent: 38 60% 45%;
+    --sidebar-accent-foreground: 35 30% 92%;
+    --sidebar-border: 20 20% 18%;
+    --sidebar-ring: 25 85% 55%;
   }
 }
 
@@ -247,13 +247,88 @@
   .text-gradient {
     background: linear-gradient(
       135deg,
-      hsl(var(--mithila-red)),
-      hsl(var(--mithila-orange)),
-      hsl(var(--mithila-yellow))
+      hsl(var(--primary)),
+      hsl(var(--mithila-gold))
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Elegant Section */
+  .elegant-section {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
+  }
+
+  /* Circle Image Frame */
+  .circle-frame {
+    border-radius: 50%;
+    border: 4px solid hsl(var(--primary) / 0.3);
+    padding: 4px;
+    background: hsl(var(--background));
+  }
+
+  .circle-frame img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* Hero Overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      hsl(var(--secondary) / 0.95) 0%,
+      hsl(var(--secondary) / 0.85) 40%,
+      hsl(var(--secondary) / 0.4) 70%,
+      transparent 100%
+    );
+  }
+
+  /* Elegant Card */
+  .elegant-card {
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    transition: all 0.4s ease;
+  }
+
+  .elegant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px hsl(var(--mithila-brown) / 0.3);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Section Title */
+  .section-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Highlighted Text */
+  .highlight-text {
+    background: linear-gradient(120deg, hsl(var(--primary) / 0.2) 0%, hsl(var(--primary) / 0.2) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 90%;
+  }
+
+  /* Play Button */
+  .play-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: hsl(var(--background));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px hsl(var(--mithila-brown) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px hsl(var(--primary) / 0.4);
   }
 
   /* Animated Underline */

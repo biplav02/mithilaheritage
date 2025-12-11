@@ -65,6 +65,9 @@ export default {
           blue: "hsl(var(--mithila-blue))",
           ink: "hsl(var(--mithila-ink))",
           cream: "hsl(var(--mithila-cream))",
+          brown: "hsl(var(--mithila-brown))",
+          terracotta: "hsl(var(--mithila-terracotta))",
+          gold: "hsl(var(--mithila-gold))",
         },
       },
       fontFamily: {
