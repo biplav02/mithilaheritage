@@ -12,6 +12,7 @@ import fishLotus from "@/assets/mithila-fish-lotus.jpg";
 import sunSymbol from "@/assets/mithila-sun-symbol.jpg";
 import unExhibition from "@/assets/un-exhibition.jpg";
 import festivalImg from "@/assets/mithila-festival.jpg";
+import mithilaMilanUK from "@/assets/mithila-milan-uk.jpg";
 
 // Gallery imports
 import floralBorder from "@/assets/gallery/mithila-floral-border.jpg";
@@ -35,6 +36,7 @@ const Index = () => {
   const heroRef = useInView(0.1);
   const artRef = useInView(0.1);
   const missionRef = useInView(0.1);
+  const eventsRef = useInView(0.1);
   const teamRef = useInView(0.1);
   const unRef = useInView(0.1);
   const programsRef = useInView(0.1);
@@ -288,6 +290,88 @@ const Index = () => {
               <Button asChild className="btn-gamified group ripple">
                 <Link to="/about">
                   Learn More <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={18} />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mithila Cultural Events Section */}
+      <section ref={eventsRef.ref} className="py-16 sm:py-20 md:py-28 bg-background relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-20 right-10 w-32 h-32 border border-mithila-yellow/20 rounded-full hidden lg:block" />
+        <div className="absolute bottom-20 left-10 w-48 h-48 border border-mithila-red/10 rounded-full hidden lg:block" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${eventsRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="badge-interactive mb-4">
+              <Calendar size={14} className="text-mithila-red" />
+              Upcoming Events
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+              Mithila <span className="text-mithila-red">Cultural Events</span>
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base sm:text-lg">
+              Celebrating Mithila heritage through community gatherings, festivals, and cultural programs worldwide.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center max-w-7xl mx-auto">
+            {/* Image Side */}
+            <div className={`relative transition-all duration-1000 ${eventsRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                <img 
+                  src={mithilaMilanUK} 
+                  alt="Mithila Milan UK Cultural Event" 
+                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute -inset-4 border-2 border-mithila-yellow/20 rounded-[2rem] -z-10 hidden lg:block" />
+              {/* Floating badge */}
+              <div className="absolute -top-4 -left-4 bg-mithila-red text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg hidden md:block animate-float">
+                <Calendar size={14} className="inline mr-1" /> Aug 23-24, 2025
+              </div>
+            </div>
+
+            {/* Content Side */}
+            <div className={`lg:pl-8 transition-all duration-1000 delay-200 ${eventsRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                Mithila Milan 2025 <span className="text-mithila-green">UK</span>
+              </h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                A grand two-day cultural celebration organized by the Mithila Cultural Society UK, 
+                featuring performances, presentations, and community participation at Wraysbury Village Hall, London.
+              </p>
+              
+              {/* Event Highlights */}
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {[
+                  { icon: Star, text: "Folk Performances" },
+                  { icon: Users, text: "Community Networking" },
+                  { icon: Award, text: "Cultural Honors" },
+                  { icon: Heart, text: "Maithili Heritage" },
+                ].map((item, index) => (
+                  <div 
+                    key={item.text} 
+                    className="flex items-center gap-2 group cursor-default hover:translate-x-1 transition-transform"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-mithila-yellow/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <item.icon size={14} className="text-mithila-red" />
+                    </div>
+                    <span className="text-sm font-medium text-foreground">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-sm text-muted-foreground mb-6">
+                <MapPin size={14} className="inline mr-1 text-mithila-red" />
+                Organized by Mithila Cultural Society UK (MCS UK)
+              </p>
+              
+              <Button asChild className="btn-gamified group ripple">
+                <Link to="/recognition">
+                  Learn More <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </Link>
               </Button>
             </div>
