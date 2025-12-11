@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Users, Award, Heart, Calendar, Play, ChevronRight, Sparkles, Star, MapPin, Zap, Target, Trophy, CheckCircle } from "lucide-react";
+import { ArrowRight, Globe, Users, Award, Heart, Calendar, Play, ChevronRight, Star, MapPin, Trophy, CheckCircle, Target, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -44,95 +44,105 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section - Premium Design with Gamified Elements */}
-      <section ref={heroRef.ref} className="relative min-h-screen flex items-center overflow-hidden bg-secondary">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src={heroDark} 
-            alt="Traditional Mithila Madhubani Art" 
-            className={`w-full h-full object-cover transition-all duration-[2s] ${heroRef.isInView ? 'opacity-60 scale-100' : 'opacity-0 scale-110'}`}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-secondary/50" />
+      {/* Hero Section - Modern Clean Design Like mithila.uk */}
+      <section ref={heroRef.ref} className="relative min-h-screen flex items-center overflow-hidden bg-mithila-cream pt-24 lg:pt-28">
+        {/* Subtle Pattern Background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full border border-mithila-red/30" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 rounded-full border border-mithila-yellow/40" />
         </div>
 
-        {/* Animated Decorative Elements */}
-        <div className={`absolute top-1/4 right-[10%] w-32 h-32 border border-mithila-yellow/30 rounded-full transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-50'} hidden lg:block`}>
-          <div className="absolute inset-2 border border-primary/20 rounded-full animate-pulse" />
-        </div>
-        <div className={`absolute bottom-1/4 right-[15%] w-16 h-16 bg-mithila-red/20 rounded-full transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100' : 'opacity-0'} hidden lg:block animate-float`} />
-        <div className="absolute top-1/3 right-[5%] w-3 h-3 bg-mithila-yellow rounded-full animate-ping hidden lg:block" />
-        <div className="absolute top-2/3 right-[8%] w-2 h-2 bg-primary rounded-full animate-pulse hidden lg:block" />
-        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl py-12 md:py-0">
-            {/* Gamified Badge */}
-            <div className={`transition-all duration-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-mithila-yellow/10 backdrop-blur-sm rounded-full border border-mithila-yellow/30 hover:bg-mithila-yellow/20 hover:scale-105 transition-all cursor-default">
-                <Sparkles size={18} className="text-mithila-yellow animate-pulse" />
-                <span className="text-sm font-medium text-mithila-yellow tracking-wide">Preserving Heritage Since 2019</span>
-                <div className="w-2 h-2 bg-mithila-green rounded-full animate-pulse" />
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            {/* Content Side */}
+            <div className="order-2 lg:order-1">
+              {/* Subtitle Line */}
+              <div className={`flex items-center gap-4 mb-6 transition-all duration-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="w-12 h-[2px] bg-mithila-red" />
+                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase">Discover Your Soul Serenity</span>
+              </div>
+              
+              <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.05] text-secondary tracking-tight transition-all duration-1000 delay-200 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                Mithila
+                <span className="block text-mithila-red">Center USA</span>
+              </h1>
+              
+              <p className={`text-lg sm:text-xl text-secondary/70 mb-10 max-w-xl leading-relaxed transition-all duration-1000 delay-400 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                Preserving the timeless beauty of Madhubani art while connecting ancient traditions 
+                with modern global communities. Join us in celebrating 5000 years of heritage.
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className={`flex flex-col sm:flex-row gap-4 mb-12 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <Button asChild variant="hero" size="hero" className="group">
+                  <Link to="/about">
+                    Read More
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  </Link>
+                </Button>
+                <Button asChild variant="heroDark" size="hero" className="group">
+                  <Link to="/gallery">
+                    View Gallery
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Stats Row */}
+              <div className={`flex flex-wrap gap-8 sm:gap-12 pt-10 border-t border-secondary/10 transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                {[
+                  { num: "5000+", label: "Years of Heritage", icon: Trophy },
+                  { num: "6+", label: "UN Exhibitions", icon: Globe },
+                  { num: "100+", label: "Artists Supported", icon: Users },
+                ].map((stat, index) => (
+                  <div 
+                    key={stat.label} 
+                    className="group cursor-default"
+                    style={{ transitionDelay: `${800 + index * 100}ms` }}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <stat.icon size={18} className="text-mithila-red/60 group-hover:text-mithila-red transition-colors" />
+                      <p className="font-display text-3xl sm:text-4xl font-bold text-secondary">{stat.num}</p>
+                    </div>
+                    <p className="text-sm text-secondary/50 group-hover:text-secondary/70 transition-colors">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            
-            <h1 className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white tracking-tight transition-all duration-1000 delay-200 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              Embark on a Journey of{" "}
-              <span className="text-mithila-yellow">Cultural Heritage</span>
-              <span className="block mt-3">& Preserve the Soul of{" "}
-              <span className="text-mithila-red">Mithila Art</span></span>
-            </h1>
-            
-            <p className={`text-lg sm:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed transition-all duration-1000 delay-400 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              At the heart of our mission, we guide individuals toward cultural preservation 
-              and artistic excellence, nurturing traditions with compassion for future generations.
-            </p>
-            
-            {/* Enhanced CTA Buttons with Gamified Styling */}
-            <div className={`flex flex-col sm:flex-row gap-4 mb-12 transition-all duration-1000 delay-500 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <Button asChild size="lg" className="btn-gamified group ripple h-14 text-lg">
-                <Link to="/about">
-                  <Zap size={20} className="mr-2 group-hover:animate-pulse" />
-                  Discover More
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-                </Link>
-              </Button>
-              <Button asChild size="lg" className="btn-outline-visible h-14 text-lg group">
-                <Link to="/gallery">
-                  <Target size={18} className="mr-2 group-hover:rotate-12 transition-transform" />
-                  View Gallery
-                </Link>
-              </Button>
-            </div>
 
-            {/* Stats Row - Gamified Counters */}
-            <div className={`flex flex-wrap gap-6 sm:gap-10 pt-10 border-t border-white/20 transition-all duration-1000 delay-700 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              {[
-                { num: "5000+", label: "Years of Heritage", icon: Trophy },
-                { num: "6+", label: "UN Exhibitions", icon: Globe },
-                { num: "100+", label: "Artists Supported", icon: Users },
-              ].map((stat, index) => (
-                <div 
-                  key={stat.label} 
-                  className="text-center sm:text-left group cursor-default hover:scale-105 transition-transform"
-                  style={{ transitionDelay: `${800 + index * 100}ms` }}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <stat.icon size={16} className="text-mithila-yellow/70 group-hover:text-mithila-yellow transition-colors" />
-                    <p className="font-display text-3xl sm:text-4xl font-bold text-mithila-yellow">{stat.num}</p>
-                  </div>
-                  <p className="text-sm text-white/60 group-hover:text-white/80 transition-colors">{stat.label}</p>
+            {/* Image Side - Mithila Art Display */}
+            <div className={`order-1 lg:order-2 relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="relative">
+                {/* Main Image with artistic frame */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img 
+                    src={heroDark} 
+                    alt="Traditional Mithila Madhubani Art" 
+                    className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
-              ))}
+                
+                {/* Floating secondary image */}
+                <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
+                  <img 
+                    src={peacockArt} 
+                    alt="Mithila Peacock Art" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-mithila-red/30 rounded-full hidden lg:block" />
+                <div className="absolute top-1/2 -right-8 w-16 h-16 bg-mithila-yellow/20 rounded-full hidden lg:block" />
+              </div>
             </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 transition-all duration-1000 delay-1000 ${heroRef.isInView ? 'opacity-100' : 'opacity-0'}`}>
-          <span className="text-xs text-white/50 tracking-widest uppercase">Scroll</span>
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2 hover:border-mithila-yellow/50 transition-colors">
-            <div className="w-1 h-3 bg-mithila-yellow rounded-full animate-scroll-down" />
+          <span className="text-xs text-secondary/40 tracking-widest uppercase">Scroll</span>
+          <div className="w-6 h-10 border-2 border-secondary/20 rounded-full flex justify-center pt-2 hover:border-mithila-red/50 transition-colors">
+            <div className="w-1 h-3 bg-mithila-red rounded-full animate-scroll-down" />
           </div>
         </div>
       </section>
