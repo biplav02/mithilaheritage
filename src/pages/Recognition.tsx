@@ -1,11 +1,32 @@
 import { Link } from "react-router-dom";
-import { Award, FileText, Building, Users, Star, ArrowRight, Calendar, CheckCircle } from "lucide-react";
+import { Award, FileText, Building, Users, Star, ArrowRight, Calendar, CheckCircle, MapPin, ExternalLink, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 import recognitionBanner from "@/assets/recognition-banner.jpg";
 import nycHall from "@/assets/nyc-hall.jpg";
+import mithilaMilanUk from "@/assets/mithila-milan-uk.jpg";
+
+const upcomingEvents = [
+  {
+    title: "Mithila Milan 2025",
+    date: "23–24 August 2025",
+    location: "Wraysbury Village Hall, London, UK",
+    organizer: "Mithila Cultural Society UK (MCS UK)",
+    description: "A grand two-day cultural celebration showcasing the vibrant traditions of Mithila culture — including music, dance, drama, art, and community-building for the Maithil diaspora.",
+    highlights: [
+      "Traditional Maithili folk music and Jhijhiya dance performances",
+      "Drama based on Ugna Mahadev (folk spiritual story)",
+      "Cultural exhibition with Madhubani/Mithila art",
+      "Community networking and scholar recognition",
+    ],
+    links: [
+      { label: "MCS UK Website", url: "https://mithilaculturalsociety.uk" },
+      { label: "Eventbrite", url: "https://www.eventbrite.co.uk" },
+    ],
+  },
+];
 
 const recognitions = [
   {
@@ -107,6 +128,133 @@ const Recognition = () => {
               <div className="absolute -top-4 -right-4 w-16 lg:w-24 h-16 lg:h-24 border-2 border-mithila-red/30 rounded-full hidden sm:block" />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Upcoming Cultural Events - Prioritized Section */}
+      <section className="py-20 bg-gradient-to-br from-mithila-red/5 via-mithila-yellow/10 to-mithila-red/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-mithila-red/10 text-mithila-red px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Calendar size={16} />
+              <span>Upcoming Events</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
+              Mithila Cultural <span className="text-mithila-red">Events</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Celebrating Mithila heritage through community gatherings, festivals, and cultural programs worldwide.
+            </p>
+          </div>
+
+          {upcomingEvents.map((event) => (
+            <div key={event.title} className="max-w-6xl mx-auto">
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-mithila-yellow/30">
+                <div className="grid lg:grid-cols-2">
+                  {/* Image Side */}
+                  <div className="relative h-64 lg:h-auto">
+                    <img 
+                      src={mithilaMilanUk} 
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <span className="inline-flex items-center gap-2 bg-mithila-yellow text-secondary px-4 py-2 rounded-full text-sm font-bold">
+                        <Calendar size={16} />
+                        {event.date}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content Side */}
+                  <div className="p-8 lg:p-10">
+                    <div className="flex items-center gap-2 text-mithila-red text-sm font-medium mb-2">
+                      <Globe size={16} />
+                      {event.organizer}
+                    </div>
+                    <h3 className="font-display text-2xl lg:text-3xl font-bold mb-3 text-secondary">
+                      {event.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
+                      <MapPin size={16} className="text-mithila-red" />
+                      {event.location}
+                    </div>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {event.description}
+                    </p>
+
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-sm text-secondary mb-3">Event Highlights:</h4>
+                      <ul className="space-y-2">
+                        {event.highlights.map((highlight, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      {event.links.map((link) => (
+                        <a 
+                          key={link.label}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-mithila-red/10 hover:bg-mithila-red hover:text-white text-mithila-red px-4 py-2 rounded-full text-sm font-medium transition-all"
+                        >
+                          <ExternalLink size={14} />
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Info Card */}
+              <div className="mt-8 bg-white/80 backdrop-blur rounded-2xl p-6 lg:p-8 border border-mithila-yellow/20">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-display text-lg font-semibold text-secondary mb-3 flex items-center gap-2">
+                      <Building size={18} className="text-mithila-red" />
+                      About Mithila Cultural Society UK
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      MCS UK is the main organisation promoting Mithila heritage in the United Kingdom through music, arts, 
+                      language, festivals, and community gatherings. They work year-round to preserve and promote Mithila arts, 
+                      language, festivals, and folklore through workshops, performances, and educational programmes.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-display text-lg font-semibold text-secondary mb-3 flex items-center gap-2">
+                      <Calendar size={18} className="text-mithila-red" />
+                      Find Upcoming Events
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      Stay updated on Mithila cultural events in the UK:
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle size={14} className="text-green-600" />
+                        Check MCS UK Eventbrite page for schedules
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle size={14} className="text-green-600" />
+                        Follow their Facebook for announcements
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle size={14} className="text-green-600" />
+                        Contact via mithilaculturalsociety.uk
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
