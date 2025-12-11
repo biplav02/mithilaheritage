@@ -31,78 +31,84 @@ const Festival = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section ref={heroRef.ref} className="relative min-h-[80vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={festivalBanner} 
-            alt="Mithila Festival" 
-            className={`w-full h-full object-cover transition-all duration-[2s] ${heroRef.isInView ? 'scale-100 opacity-100' : 'scale-110 opacity-0'}`}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 to-transparent" />
+      <section ref={heroRef.ref} className="relative min-h-[85vh] flex items-center overflow-hidden bg-mithila-cream pt-32 lg:pt-36">
+        {/* Subtle decorative elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-40 right-20 w-64 h-64 border border-mithila-red/30 rounded-full" />
+          <div className="absolute bottom-32 left-20 w-48 h-48 border border-mithila-yellow/40 rounded-full" />
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-20 right-10 w-32 h-32 border border-primary/20 rounded-full animate-pulse hidden lg:block" />
-        <div className="absolute bottom-20 right-20 w-20 h-20 bg-mithila-yellow/10 rounded-full blur-xl animate-float hidden lg:block" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className={`max-w-2xl transition-all duration-1000 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full border border-primary/30">
-              <Calendar size={16} className="text-primary" />
-              <span className="text-sm font-medium text-secondary-foreground">Annual Celebration • April</span>
-            </div>
-            
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary-foreground leading-tight">
-              Mithila Festival <span className="text-primary">USA</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-secondary-foreground/80 mb-8 max-w-xl leading-relaxed">
-              Celebrating Mithila New Year (Jur Sital) with art, culture, cuisine, 
-              and community. The largest Mithila cultural celebration in the United States.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="btn-gamified group ripple">
-                <Link to="/contact">
-                  Register Interest 
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-                </Link>
-              </Button>
-              <Button asChild size="lg" className="btn-outline-visible group">
-                <Link to="/gallery">
-                  <Play size={16} className="mr-2" />
-                  View Past Festivals
-                </Link>
-              </Button>
-            </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className={`transition-all duration-1000 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-[2px] bg-mithila-red" />
+                <span className="text-sm font-medium text-mithila-red tracking-widest uppercase flex items-center gap-2">
+                  <Calendar size={14} />
+                  Annual Celebration • April
+                </span>
+              </div>
+              
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-secondary leading-[1.1]">
+                Mithila Festival
+                <span className="block text-mithila-red">USA</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-secondary/70 mb-8 max-w-xl leading-relaxed">
+                Celebrating Mithila New Year (Jur Sital) with art, culture, cuisine, 
+                and community. The largest Mithila cultural celebration in the United States.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Button asChild variant="hero" size="hero" className="group">
+                  <Link to="/contact">
+                    Register Interest 
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                  </Link>
+                </Button>
+                <Button asChild variant="heroDark" size="hero" className="group">
+                  <Link to="/gallery">
+                    View Past Festivals
+                  </Link>
+                </Button>
+              </div>
 
-            {/* Stats */}
-            <div className={`flex flex-wrap gap-8 mt-12 pt-8 border-t border-secondary-foreground/20 transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              {[
-                { value: "2019", label: "Since" },
-                { value: "5+", label: "Editions" },
-                { value: "1000+", label: "Attendees" },
-              ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <p className="font-display text-2xl md:text-3xl font-bold text-primary">{stat.value}</p>
-                  <p className="text-xs md:text-sm text-secondary-foreground/70">{stat.label}</p>
-                </div>
-              ))}
+              {/* Stats */}
+              <div className={`flex flex-wrap gap-8 pt-8 border-t border-secondary/10 transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                {[
+                  { value: "2019", label: "Since" },
+                  { value: "5+", label: "Editions" },
+                  { value: "1000+", label: "Attendees" },
+                ].map((stat, i) => (
+                  <div key={i} className="group cursor-default">
+                    <p className="font-display text-2xl md:text-3xl font-bold text-secondary">{stat.value}</p>
+                    <p className="text-xs md:text-sm text-secondary/50">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-          <div className="w-6 h-10 border-2 border-secondary-foreground/30 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-primary rounded-full animate-scroll-down" />
+            
+            {/* Image Side */}
+            <div className={`relative transition-all duration-1000 delay-300 ${heroRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <img 
+                  src={festivalBanner} 
+                  alt="Mithila Festival" 
+                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
+                <img src={festivalDance} alt="Festival Dance" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-mithila-red/30 rounded-full hidden lg:block" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* About Festival */}
-      <section ref={aboutRef.ref} className="py-20 md:py-28 bg-card overflow-hidden">
+      <section ref={aboutRef.ref} className="py-20 md:py-28 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
             <div className={`relative transition-all duration-1000 ${aboutRef.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
